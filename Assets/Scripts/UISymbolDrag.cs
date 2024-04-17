@@ -14,7 +14,7 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
     public static GameObject itemDragging;
 
     // Eliminar carta.
-    public Transform garbage;
+    private Transform garbage;
     // Valores de animacion
     public float garbageDoScaleSize = 1.2f;
     public float garbageDoScaleTime = 0.2f;
