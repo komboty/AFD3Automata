@@ -17,8 +17,8 @@ public class UIAlphabetManager : MonoBehaviour, IPointerClickHandler
     // Prefab de un symbolo de la interfaz de usuario.
     public GameObject prefabUISymbol;
     // Valores de animacion
-    public float symbolDoScaleSize = 4f;
-    public float symbolDoScaleTime = 0.25f;
+    public float symbolDoScaleSize = 1.2f;
+    public float symbolDoScaleTime = 0.2f;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -26,7 +26,7 @@ public class UIAlphabetManager : MonoBehaviour, IPointerClickHandler
         newSymbol.transform.name = transform.name;
         UnityEditor.GameObjectUtility.SetParentAndAlign(newSymbol, UIstring);
         //newSymbol.transform.DOLocalMoveY(doScaleSize2, doScaleTime2);
-        newSymbol.transform.DOScale(symbolDoScaleSize, symbolDoScaleTime);
-        newSymbol.transform.DOScale(1f, symbolDoScaleTime);
+        newSymbol.transform.DOScale(symbolDoScaleSize, symbolDoScaleTime)
+            .OnComplete(() => newSymbol.transform.DOScale(1f, symbolDoScaleTime));
     }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,15 +13,31 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
     // Item moviendo.
     public static GameObject itemDragging;
 
+    // Eliminar carta.
+    public Transform garbage;
+    // Valores de animacion
+    public float garbageDoScaleSize = 1.2f;
+    public float garbageDoScaleTime = 0.2f;
+
     // Auxiliares para el ordenamiento dinamico de los simbolos.
     private Transform parentToReturnTo = null;
     private Transform placeHolderParent = null;
     private GameObject placeHolder = null;
 
+    private void Start()
+    {
+        garbage = transform.parent.parent.GetChild(1);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Se guarda la referencia del item que se esta moviendo.
         itemDragging = gameObject;
+        // Se activa la basura.
+        garbage.gameObject.SetActive(true);
+        garbage.DOScale(garbageDoScaleSize, garbageDoScaleTime)
+            .OnComplete(() => garbage.DOScale(1f, garbageDoScaleTime));
+        
 
         // Codigo para iniciar el ordenamiento dinamico de los simbolos.
         placeHolder = new GameObject();
@@ -60,7 +77,7 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
     public void OnEndDrag(PointerEventData eventData)
     {
         // Se elimina la referencia del item que se estaba moviendo.
-        itemDragging = null;
+        itemDragging = null;        
 
         // Codigo que restablece los simbolos despues de hacer el ordenamiento dinamico.
         FinishOrdering();
@@ -68,6 +85,11 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
 
     public void FinishOrdering()
     {
+        // Se desactiva la basura.
+        garbage.DOScale(0f, garbageDoScaleTime)
+            .OnComplete(() => garbage.gameObject.SetActive(false));
+
+        // Codigo que termina el ordenamiento dinamico de los simbolos.
         this.transform.SetParent(parentToReturnTo);
         this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
