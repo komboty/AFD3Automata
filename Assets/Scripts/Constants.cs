@@ -11,7 +11,6 @@ public class Constants : MonoBehaviour
     /// Nombres de Escenas.
     /// </summary>
     //public string nameSceneMenu = "MainMenu";
-    public string SceneNameNivelTest = "Nivel Test";
 
     /// <summary>
     /// Valores de la camara.
@@ -38,7 +37,7 @@ public class Constants : MonoBehaviour
     //public string tagSymbol = "Symbol";
     //public string tagPlatform = "Platform";
     //public string tagWaypoint = "Waypoint";
-    public string tagString = "String";
+    //public string tagString = "String";
 
     /// </summary>
     /// Valores default del jugador.
@@ -53,5 +52,4 @@ public class Constants : MonoBehaviour
     /// Simbolos.
     /// </summary>
     public string SymbolEpsilonName = "E";
-    //public string SymbolGreen = "G";
 }

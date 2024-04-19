@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8782828227397737070}
   - component: {fileID: 7033326877708975234}
   - component: {fileID: -8674385452269026352}
+  - component: {fileID: -8371893702781659102}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -189,6 +190,27 @@ MonoBehaviour:
   splineContainer: []
   speed: 10
   isPlay: 0
+--- !u!65 &-8371893702781659102
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787066344607949047}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1800537056736239666
 GameObject:
   m_ObjectHideFlags: 0

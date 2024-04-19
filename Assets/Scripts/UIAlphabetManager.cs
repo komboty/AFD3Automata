@@ -24,7 +24,7 @@ public class UIAlphabetManager : MonoBehaviour, IPointerClickHandler
     {
         GameObject newSymbol = Instantiate(prefabUISymbol);
         newSymbol.transform.name = transform.name;
-        UnityEditor.GameObjectUtility.SetParentAndAlign(newSymbol, UIstring);
+        newSymbol.transform.SetParent(UIstring.transform, false);
         //newSymbol.transform.DOLocalMoveY(doScaleSize2, doScaleTime2);
         newSymbol.transform.DOScale(symbolDoScaleSize, symbolDoScaleTime)
             .OnComplete(() => newSymbol.transform.DOScale(1f, symbolDoScaleTime));

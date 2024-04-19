@@ -35,7 +35,10 @@ public class NivelManager : MonoBehaviour
         if (!uiString.parent.GetChild(2).gameObject.activeSelf)
             return;
 
-        // Se crean los modelos 3d de cada simbolo.
+        // Objeto auxiliar para saber donde inicia la cadena
+        GameObject lastSymbol = CreateSymbol(symbolE);
+
+        // Se crean los modelos 3d de cada simbolo.        
         for (int i = 0; i < uiString.childCount; i++)
         {
             Transform uiSymbol = uiString.GetChild(i);
@@ -44,12 +47,12 @@ public class NivelManager : MonoBehaviour
             {
                 // Se crea el symbolo.
                 if (symbolModel.name.Equals(uiSymbol.name))
-                    CreateSymbol(symbolModel);
+                    lastSymbol = CreateSymbol(symbolModel);
             }
         }
 
-        // Se crea el symbolo E.
-        GameObject lastSymbol = CreateSymbol(symbolE);
+        //// Se crea el symbolo E.
+        //GameObject lastSymbol = CreateSymbol(symbolE);
 
         // Se sigue a la cadena con la camara.
         CameraController.instance.followTransform = lastSymbol.transform;
