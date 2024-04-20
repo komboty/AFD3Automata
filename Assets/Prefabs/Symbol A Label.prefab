@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7870082330124487877, guid: 370f74b3169e64c4796f3f730844e5d4, type: 3}
       propertyPath: m_Name
-      value: Symbol A Label Variant
+      value: Symbol A Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

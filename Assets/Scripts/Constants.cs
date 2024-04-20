@@ -38,6 +38,7 @@ public class Constants : MonoBehaviour
     //public string tagPlatform = "Platform";
     //public string tagWaypoint = "Waypoint";
     //public string tagString = "String";
+    public string tagMainCamera = "MainCamera";
 
     /// </summary>
     /// Valores default del jugador.
@@ -51,5 +52,5 @@ public class Constants : MonoBehaviour
     /// <summary>
     /// Simbolos.
     /// </summary>
-    public string SymbolEpsilonName = "E";
+    public string SymbolEpsilonName = "E";    
 }
