@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5024661719936589858}
   - component: {fileID: 7057222964737950184}
   - component: {fileID: 2904736048462033463}
+  - component: {fileID: 4110294277549866034}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -163,6 +164,56 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
   m_Seed: -270392
+--- !u!114 &4110294277549866034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820192712592668819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Container: {fileID: 7057222964737950184}
+  m_ItemsToInstantiate:
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 7410334058012095622, guid: 22e5a3a34a474dd4087b66983a9ec63b, type: 3}
+    probability: 0
+    Probability: 0
+  m_Method: 0
+  m_Space: 0
+  m_Spacing: {x: 1, y: 1}
+  m_Up: 2
+  m_Forward: 1
+  m_PositionOffset:
+    setup: 1
+    min: {x: 0, y: -0.4, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_RotationOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_ScaleOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_DeprecatedInstances: []
+  m_AutoRefresh: 1
+  m_Seed: -2328404
 --- !u!1 &2466938695523640720
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 2466938695523640720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 40}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -345,6 +396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
+  nivelManager: {fileID: 0}
+  uiString: {fileID: 0}
+  uiSymbolColorDelete: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   isStateInitial: 0
   isStateFinal: 0
 --- !u!1 &3080714375809625291
@@ -358,6 +412,7 @@ GameObject:
   - component: {fileID: 8055487422993439138}
   - component: {fileID: 711775020125219423}
   - component: {fileID: 7620718218398121505}
+  - component: {fileID: 8480827936076435115}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -510,6 +565,56 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
   m_Seed: -278204
+--- !u!114 &8480827936076435115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080714375809625291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b74686beb0670a4ea61325c0acf4411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Container: {fileID: 711775020125219423}
+  m_ItemsToInstantiate:
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 7410334058012095622, guid: 22e5a3a34a474dd4087b66983a9ec63b, type: 3}
+    probability: 0
+    Probability: 0
+  m_Method: 0
+  m_Space: 0
+  m_Spacing: {x: 1, y: 1}
+  m_Up: 2
+  m_Forward: 1
+  m_PositionOffset:
+    setup: 1
+    min: {x: 0, y: -0.4, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_RotationOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_ScaleOffset:
+    setup: 0
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    randomX: 0
+    randomY: 0
+    randomZ: 0
+    space: 0
+  m_DeprecatedInstances: []
+  m_AutoRefresh: 1
+  m_Seed: -2328404
 --- !u!1 &3693337872108649167
 GameObject:
   m_ObjectHideFlags: 0

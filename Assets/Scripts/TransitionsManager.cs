@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 /// <summary>
 /// Script que controla las transiciones de un estado.
@@ -13,15 +14,19 @@ public class TransitionsManager : MonoBehaviour
     public Constants constants;
     // Para conocer el tiempo de creacion de los simbolos.
     public NivelManager nivelManager;
-    // Es estado incial?.
-    public bool isStateInitial = false;
-    private bool auxStateInitial = true;
-    //Es estado final?.
-    public bool isStateFinal = false;    
+    // Interfza grafica del usuario.
+    public Transform uiString;
+    public Color uiSymbolColorDelete = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     //// Mensaje de ganador.
     //public GameObject uiWinner;
     //// Mensaje de perdedor.
     //public GameObject uiLoser;
+    // Es estado incial?.
+    public bool isStateInitial = false;
+    private bool auxStateInitial = true;
+    //Es estado final?.
+    public bool isStateFinal = false;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,6 +50,10 @@ public class TransitionsManager : MonoBehaviour
                 // Si hay tres o mas simbolos, el primero es el 2 del arreglo, sino el primero es 1.
                 int numFirstSymbol = symbols.childCount >= 3 ? 2 : 1;
                 nameFirstSymbol = symbols.GetChild(numFirstSymbol).name;
+                Transform cardSymbol = uiString.GetChild(uiString.childCount - (symbols.childCount - 1));
+                if (numFirstSymbol == 2)
+                    cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
+
                 // Se destruye el primer simbolo de la cadena.
                 Destroy(symbols.GetChild(1).gameObject);
 
@@ -53,8 +62,11 @@ public class TransitionsManager : MonoBehaviour
                 {
                     // Si es estado final.
                     if (isStateFinal)
+                    {
                         //uiWinner.SetActive(true);
                         Debug.Log("Ganaste");
+                        cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
+                    }                        
                     // Si no es estado final
                     else
                         Debug.Log("Perdiste");

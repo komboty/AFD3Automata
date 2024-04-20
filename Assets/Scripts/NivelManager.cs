@@ -26,6 +26,7 @@ public class NivelManager : MonoBehaviour
     public GameObject symbolE;
     // Prefabs de cada simbolo del alfabeto del automata.
     public List<GameObject> symbolsModel;
+        
 
     public void StartAutomata()
     {
@@ -110,19 +111,19 @@ public class NivelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DeleteSymbols()
-    {        
-        for (int i = 0; i < symbols.childCount; i++)
-        {
-            Destroy(symbols.GetChild(i).gameObject);
-            yield return new WaitForSeconds(20f);
-        }        
-    }
-
     public void Restart(string nivelName)
     {
-        //DOTween.KillAll();
         //DOTween.Clear(true);
+        DOTween.KillAll(true);
         SceneManager.LoadScene(nivelName);
     }
+
+    //public IEnumerator DeleteSymbols()
+    //{
+    //    for (int i = 0; i < symbols.childCount; i++)
+    //    {
+    //        Destroy(symbols.GetChild(i).gameObject);
+    //        yield return new WaitForSeconds(0.1f);
+    //    }
+    //}
 }

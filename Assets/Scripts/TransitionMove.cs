@@ -27,7 +27,7 @@ public class TransitionMove : MonoBehaviour
             distancePercentage += speed * Time.deltaTime / splineLength;
 
             Vector3 currentPosition = splineContainer[numSplineContainer].EvaluatePosition(distancePercentage);
-            transform.position = currentPosition;
+            transform.position = currentPosition + Vector3.up;
 
             if (distancePercentage > 1f)
             {
