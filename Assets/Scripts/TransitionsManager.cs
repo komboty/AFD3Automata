@@ -14,13 +14,11 @@ public class TransitionsManager : MonoBehaviour
     public Constants constants;
     // Para conocer el tiempo de creacion de los simbolos.
     public NivelManager nivelManager;
-    // Interfza grafica del usuario.
+    // Interfza del usuario para los simbolos.
     public Transform uiString;
     public Color uiSymbolColorDelete = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-    //// Mensaje de ganador.
-    //public GameObject uiWinner;
-    //// Mensaje de perdedor.
-    //public GameObject uiLoser;
+    // Interfza del usuario que muestra mensajes.
+    public UIMessagesManager uIMessagesManager;
     // Es estado incial?.
     public bool isStateInitial = false;
     private bool auxStateInitial = true;
@@ -32,7 +30,7 @@ public class TransitionsManager : MonoBehaviour
     {
         //Debug.Log(other.name);
         //// Si la cadena entro al estado.
-        if (other.name.Equals(constants.SymbolEpsilonName))
+        if (other.name.Equals(constants.SYMBOL_UAX_NAME))
         {
             Transform symbols = other.transform.parent;
             string nameFirstSymbol;
@@ -63,15 +61,14 @@ public class TransitionsManager : MonoBehaviour
                     // Si es estado final.
                     if (isStateFinal)
                     {
-                        //uiWinner.SetActive(true);
-                        Debug.Log("Ganaste");
                         cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
+                        uIMessagesManager.ShowWinner();
                     }                        
                     // Si no es estado final
                     else
-                        Debug.Log("Perdiste");
-                        //uiLoser.SetActive(true);
+                        uIMessagesManager.ShowLoser();
 
+                    // Se finaliza.
                     return;
                 }
             }            
@@ -102,7 +99,7 @@ public class TransitionsManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name.Equals(constants.SymbolEpsilonName))
+        if (other.name.Equals(constants.SYMBOL_UAX_NAME))
         {
             StartCoroutine(UpdatePositionAux(other.transform));
         }

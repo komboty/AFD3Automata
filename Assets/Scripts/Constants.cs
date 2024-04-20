@@ -8,19 +8,17 @@ using UnityEngine;
 public class Constants : MonoBehaviour
 {
     /// <summary>
+    /// Mensajes.
+    /// </summary>
+    public string MESSAGES_MAX_SYMBOLS = "Por el momento\nSolo puedes poner {0} Símbolos";
+    public string MESSAGES_WINNER = "Ganaste!!!\nFelicidades";
+    public string MESSAGES_LOSER = "Inténtalo otra vez";
+    public string MESSAGES_NO_EMPTY = "Debes poner al\nmenos un Símbolos";
+
+    /// <summary>
     /// Nombres de Escenas.
     /// </summary>
     //public string nameSceneMenu = "MainMenu";
-
-    /// <summary>
-    /// Valores de la camara.
-    /// </summary>
-    //public float CameraNormalSpeed = 0.5f;
-    //public float CameraFastSpeed = 3f;
-    //public float CameraMovementSpeed = 1f;
-    //public float CameraMovementTime = 5f;
-    //public float CameraRotationAmount = 1f;
-    //public Vector3 CameraZoomAmount = new Vector3(0f, -5f, 5f);
 
     /// <summary>
     /// Nombres de Inputs.
@@ -38,19 +36,10 @@ public class Constants : MonoBehaviour
     //public string tagPlatform = "Platform";
     //public string tagWaypoint = "Waypoint";
     //public string tagString = "String";
-    public string tagMainCamera = "MainCamera";
-
-    /// </summary>
-    /// Valores default del jugador.
-    /// </summary>
-    //public float speedPlayer = 9f;
-    //public float limitDirectionMovePlayer = 0.1f;
-    //public float turnSmoothTimePlayer = 0.1f;
-
-    //public float speedWaypoints = 4f;
+    public string TAG_MAIN_CAMERA = "MainCamera";
 
     /// <summary>
     /// Simbolos.
     /// </summary>
-    public string SymbolEpsilonName = "E";    
+    public string SYMBOL_UAX_NAME = "E";    
 }

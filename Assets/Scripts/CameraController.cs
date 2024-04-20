@@ -39,14 +39,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         instance = this;
-        // Se asignan valores por defecto.
-        //normalSpeed = constants.CameraNormalSpeed;
-        //fastSpeed = constants.CameraFastSpeed;
-        //movementSpeed = constants.CameraMovementSpeed;
-        //movementTime = constants.CameraMovementTime;
-        //rotationAmount = constants.CameraRotationAmount;
-        //zoomAmount = constants.CameraZoomAmount;
-
         newPosition = transform.position;
         newRotation = transform.rotation;
         newZoom = cameraTransform.localPosition;

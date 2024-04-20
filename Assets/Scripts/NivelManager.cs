@@ -12,6 +12,8 @@ public class NivelManager : MonoBehaviour
 {
     // Constantes del juego.
     public Constants constants;
+    // Panel de mensajes.
+    public UIMessagesManager uiMessages;
     // Contenedor de simbolos (cadena).
     public Transform symbols;
     //Tiempo para moverse entre cada symbolo.
@@ -54,9 +56,9 @@ public class NivelManager : MonoBehaviour
                     //lastSymbol = CreateSymbol(symbolModel);
                     CreateSymbol(symbolModel);
             }
-        }        
+        }
 
-        // Se inicia el automata
+        // Se inicia el automata, si al menos existe un simbolo.
         if (symbols.childCount > 1)
         {
             // Se sigue a la cadena con la camara.
@@ -78,9 +80,13 @@ public class NivelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Debes poner al menos una carta");
+            // Se limpia la cedena de simbolos.
+            for (int i = 0; i < symbols.childCount; i++)
+                Destroy(symbols.GetChild(i).gameObject);
+            // Se muestra mensaje de error.
+            uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY);
         }
-        
+
     }
 
     public GameObject CreateSymbol(GameObject symbolModel)

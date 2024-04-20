@@ -44,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bac7edaf5dc174fb868e761753729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNameNivelTest: Nivel Test
-  CameraNormalSpeed: 0.5
-  CameraFastSpeed: 3
-  CameraMovementSpeed: 1
-  CameraMovementTime: 5
-  CameraRotationAmount: 1
-  CameraZoomAmount: {x: 0, y: -5, z: 5}
-  tagString: String
-  SymbolEpsilonName: E
+  MESSAGES_MAX_SYMBOLS: "Por el momento\nSolo puedes poner {0} S\xEDmbolos"
+  MESSAGES_WINNER: 'Ganaste!!!
+
+    Felicidades'
+  MESSAGES_LOSER: "Int\xE9ntalo otra vez"
+  MESSAGES_NO_EMPTY: "Debes poner al\nmenos un S\xEDmbolos"
+  TAG_MAIN_CAMERA: MainCamera
+  SYMBOL_UAX_NAME: E
