@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   symbols: {fileID: 1696857281}
-  symbolTimeout: 0.8
+  symbolTimeout: 0.4
   transitionInitial: {fileID: 231955811}
   uiString: {fileID: 1332614236}
   btnPlay: {fileID: 726805755}
@@ -1785,6 +1785,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.92
       objectReference: {fileID: 0}
+    - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
+      propertyPath: nivelManager
+      value: 
+      objectReference: {fileID: 657733763}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2183,22 +2187,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5f4c822e067364db24f9291c279cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   followTransform: {fileID: 0}
   cameraTransform: {fileID: 963194228}
-  normalSpeed: 0
-  fastSpeed: 0
-  movementSpeed: 0
-  movementTime: 0
-  rotationAmount: 0
-  zoomAmount: {x: 0, y: 0, z: 0}
-  newPosition: {x: 0, y: 0, z: 0}
-  newRotation: {x: 0, y: 0, z: 0, w: 0}
-  newZoom: {x: 0, y: 0, z: 0}
-  dragStartPosition: {x: 0, y: 0, z: 0}
-  dragCurrentPosition: {x: 0, y: 0, z: 0}
-  rotateStartPosition: {x: 0, y: 0, z: 0}
-  rotateCurrentPosition: {x: 0, y: 0, z: 0}
+  cameraSpeed: 0.8
+  normalSpeed: 0.5
+  fastSpeed: 3
+  movementSpeed: 1
+  movementTime: 5
+  rotationAmount: 1
+  zoomAmount: {x: 0, y: -5, z: 5}
 --- !u!4 &1299989623
 Transform:
   m_ObjectHideFlags: 0
@@ -2241,17 +2238,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332614235}
-  m_LocalRotation: {x: 0, y: 0, z: -0.013089582, w: 0.99991435}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008726465, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1105410436}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 330, y: 44}
-  m_SizeDelta: {x: 625, y: 164}
+  m_AnchoredPosition: {x: 327, y: 33.5}
+  m_SizeDelta: {x: 619, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332614237
 MonoBehaviour:
@@ -2271,14 +2268,14 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -25
+  m_Spacing: -15
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!114 &1332614238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: 223}
+  m_AnchoredPosition: {x: 49, y: 202}
   m_SizeDelta: {x: 63, y: 167.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533812603
@@ -4645,6 +4642,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.88
       objectReference: {fileID: 0}
+    - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
+      propertyPath: nivelManager
+      value: 
+      objectReference: {fileID: 657733763}
     - target: {fileID: 8202281254175207744, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5597,6 +5598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9053591671369157203, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
+      propertyPath: nivelManager
+      value: 
+      objectReference: {fileID: 657733763}
     - target: {fileID: 9053591671369157203, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
       propertyPath: isStateInitial
       value: 1

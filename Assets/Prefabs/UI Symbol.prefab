@@ -94,8 +94,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 105
-  m_PreferredHeight: 150
+  m_PreferredWidth: 90
+  m_PreferredHeight: 130
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310a15214be4a204aaec873cff578a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  garbage: {fileID: 4175335359407947471, guid: 067ed69f7d1863b4a876e8796323f1ea, type: 3}
+  garbageDoScaleSize: 1.2
+  garbageDoScaleTime: 0.2
 --- !u!114 &-2058817380790909006
 MonoBehaviour:
   m_ObjectHideFlags: 0

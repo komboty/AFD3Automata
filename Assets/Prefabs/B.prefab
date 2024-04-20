@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineContainer: []
-  speed: 20
   isPlay: 0
+  speed: 0
 --- !u!1 &3444527948912023787
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// Script que controla la camara.
@@ -8,42 +9,43 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Constantes del juego.
-    public Constants constants;
+    //public Constants constants;
     // Camara.
     public static CameraController instance;
     // Seguimiento de un objeto
     public Transform followTransform;
     public Transform cameraTransform;
+    public float cameraSpeed = 0.8f;
     // Velocidad.
-    public float normalSpeed;
-    public float fastSpeed;
+    public float normalSpeed = 0.5f;
+    public float fastSpeed = 3f;
     // Desplazamineto.
-    public float movementSpeed;
-    public float movementTime;
+    public float movementSpeed = 1f;
+    public float movementTime = 5f;
     // Rotacion.
-    public float rotationAmount;
+    public float rotationAmount = 1f;
     // Zoom
-    public Vector3 zoomAmount;
+    public Vector3 zoomAmount = new Vector3(0f, -5f, 5f);
     // Auxiliares.
-    public Vector3 newPosition;
-    public Quaternion newRotation;
-    public Vector3 newZoom;
+    private Vector3 newPosition;
+    private Quaternion newRotation;
+    private Vector3 newZoom;
     // Mouse.
-    public Vector3 dragStartPosition;
-    public Vector3 dragCurrentPosition;
-    public Vector3 rotateStartPosition;
-    public Vector3 rotateCurrentPosition;
+    private Vector3 dragStartPosition;
+    private Vector3 dragCurrentPosition;
+    private Vector3 rotateStartPosition;
+    private Vector3 rotateCurrentPosition;
 
     void Start()
     {
         instance = this;
         // Se asignan valores por defecto.
-        normalSpeed = constants.CameraNormalSpeed;
-        fastSpeed = constants.CameraFastSpeed;
-        movementSpeed = constants.CameraMovementSpeed;
-        movementTime = constants.CameraMovementTime;
-        rotationAmount = constants.CameraRotationAmount;
-        zoomAmount = constants.CameraZoomAmount;
+        //normalSpeed = constants.CameraNormalSpeed;
+        //fastSpeed = constants.CameraFastSpeed;
+        //movementSpeed = constants.CameraMovementSpeed;
+        //movementTime = constants.CameraMovementTime;
+        //rotationAmount = constants.CameraRotationAmount;
+        //zoomAmount = constants.CameraZoomAmount;
 
         newPosition = transform.position;
         newRotation = transform.rotation;
@@ -55,7 +57,8 @@ public class CameraController : MonoBehaviour
         // Si se sigue un objetivo.
         if (followTransform != null)
         {
-            transform.position = followTransform.position;
+            //transform.position = followTransform.position;
+            transform.position = Vector3.Lerp(transform.position, followTransform.position, cameraSpeed * Time.deltaTime);
         }
         // Si NO se sigue un objetivo.
         else

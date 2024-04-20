@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6078773227891940078}
   - component: {fileID: -1845361093792172600}
   - component: {fileID: 7574791480187750584}
-  - component: {fileID: -6554511809795606856}
+  - component: {fileID: -2921356282716429807}
   m_Layer: 0
   m_Name: E
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6554511809795606856
+--- !u!114 &-2921356282716429807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineContainer: []
-  speed: 20
   isPlay: 0
+  speed: 0

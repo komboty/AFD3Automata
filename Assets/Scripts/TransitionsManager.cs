@@ -11,11 +11,13 @@ public class TransitionsManager : MonoBehaviour
 {
     // Constantes del juego.
     public Constants constants;
+    // Para conocer el tiempo de creacion de los simbolos.
+    public NivelManager nivelManager;
     // Es estado incial?.
     public bool isStateInitial = false;
     private bool auxStateInitial = true;
     //Es estado final?.
-    public bool isStateFinal = false;
+    public bool isStateFinal = false;    
     //// Mensaje de ganador.
     //public GameObject uiWinner;
     //// Mensaje de perdedor.
@@ -84,5 +86,21 @@ public class TransitionsManager : MonoBehaviour
                 symbols.GetChild(i).GetComponent<TransitionMove>()
                     .AddSplineContainer(splineContainer);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name.Equals(constants.SymbolEpsilonName))
+        {
+            StartCoroutine(UpdatePositionAux(other.transform));
+        }
+    }
+
+    public IEnumerator UpdatePositionAux(Transform symbolE)
+    {
+        TransitionMove transitionMove = symbolE.parent.GetChild(1).GetComponent<TransitionMove>();
+        //Debug.Log(nivelManager.symbolTimeout - (1f / transitionMove.speed));
+        yield return new WaitForSeconds(nivelManager.symbolTimeout);// - (1f / transitionMove.speed));
+        symbolE.GetComponent<TransitionMove>().CopyValuesTo(transitionMove);        
     }
 }

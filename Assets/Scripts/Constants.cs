@@ -15,12 +15,12 @@ public class Constants : MonoBehaviour
     /// <summary>
     /// Valores de la camara.
     /// </summary>
-    public float CameraNormalSpeed = 0.5f;
-    public float CameraFastSpeed = 3f;
-    public float CameraMovementSpeed = 1f;
-    public float CameraMovementTime = 5f;
-    public float CameraRotationAmount = 1f;
-    public Vector3 CameraZoomAmount = new Vector3(0f, -5f, 5f);
+    //public float CameraNormalSpeed = 0.5f;
+    //public float CameraFastSpeed = 3f;
+    //public float CameraMovementSpeed = 1f;
+    //public float CameraMovementTime = 5f;
+    //public float CameraRotationAmount = 1f;
+    //public Vector3 CameraZoomAmount = new Vector3(0f, -5f, 5f);
 
     /// <summary>
     /// Nombres de Inputs.
