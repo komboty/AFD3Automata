@@ -6,7 +6,7 @@ using UnityEngine.Splines;
 public class TransitionMove : MonoBehaviour
 {
     public List<SplineContainer> splineContainer;
-    public float speed = 10f;
+    public float speed = 15f;
     public bool isPlay = false;
 
     private float distancePercentage = 0f;
@@ -35,6 +35,7 @@ public class TransitionMove : MonoBehaviour
                 if (isEndSplineContainer)
                     return;
 
+                numSplineContainer++;
                 UpdateValues();
             }
 
@@ -47,7 +48,7 @@ public class TransitionMove : MonoBehaviour
     public void UpdateValues()
     {
         distancePercentage = 0f;
-        numSplineContainer = splineContainer.Count - 1;
+        //numSplineContainer = splineContainer.Count - 1;        
         splineLength = splineContainer[numSplineContainer].CalculateLength();
     }
 
@@ -56,8 +57,8 @@ public class TransitionMove : MonoBehaviour
         splineContainer.Add(newSplineContainer);
     }
 
-    public void Play()
-    {
-        isPlay = true;
-    }
+    //public void Play()
+    //{
+    //    isPlay = true;
+    //}
 }

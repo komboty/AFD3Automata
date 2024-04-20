@@ -12,10 +12,8 @@ public class NivelManager : MonoBehaviour
 {
     // Constantes del juego.
     public Constants constants;
-    //// Cadena a mover por las transiciones.
-    //public Transform stringMove;
     // Contenedor de simbolos (cadena).
-    public Transform stringSymbols;
+    public Transform symbols;
     //Tiempo para moverse entre cada symbolo.
     public float symbolTimeout;
     // Transicion inicial.
@@ -35,6 +33,10 @@ public class NivelManager : MonoBehaviour
         if (!uiString.parent.GetChild(2).gameObject.activeSelf)
             return;
 
+        //Debug.Log("Ini");
+        //StartCoroutine(nameof(DeleteSymbols));
+        //Debug.Log("Fin");
+
         // Objeto auxiliar para saber donde inicia la cadena
         GameObject lastSymbol = CreateSymbol(symbolE);
 
@@ -49,97 +51,69 @@ public class NivelManager : MonoBehaviour
                 if (symbolModel.name.Equals(uiSymbol.name))
                     lastSymbol = CreateSymbol(symbolModel);
             }
-        }
-
-        //// Se crea el symbolo E.
-        //GameObject lastSymbol = CreateSymbol(symbolE);
-
-        // Se sigue a la cadena con la camara.
-        CameraController.instance.followTransform = lastSymbol.transform;
-
-        // Se ocultan elementos de la interfaz de usaurio.
-        //for (int i = 1; i < uiString.parent.childCount; i++)
-        uiString.parent.GetChild(2).gameObject.SetActive(false);
-        btnPlay.GetComponent<UIPointerAnimation>().enabled = false;
-
-        // Se desabilita el drag de los symbolos de la interfaz de usuario.
-        for (int i = 0; i < uiString.childCount; i++)
-        {
-            uiString.GetChild(i).GetComponent<UISymbolDrag>().enabled = false;
-            uiString.GetChild(i).GetComponent<UIPointerAnimation>().enabled = false;
-        }
+        }        
 
         // Se inicia el automata
-        StartCoroutine(nameof(MoveSymbols));
+        if (symbols.childCount > 1)
+        {
+            // Se sigue a la cadena con la camara.
+            CameraController.instance.followTransform = lastSymbol.transform;
+
+            // Se ocultan elementos de la interfaz de usaurio.
+            //for (int i = 1; i < uiString.parent.childCount; i++)
+            uiString.parent.GetChild(2).gameObject.SetActive(false);
+            btnPlay.SetActive(false);
+
+            // Se desabilita el drag de los symbolos de la interfaz de usuario.
+            for (int i = 0; i < uiString.childCount; i++)
+            {
+                uiString.GetChild(i).GetComponent<UISymbolDrag>().enabled = false;
+                uiString.GetChild(i).GetComponent<UIPointerAnimation>().enabled = false;
+            }
+
+            StartCoroutine(nameof(MoveSymbols));
+        }
+        else
+        {
+            Debug.Log("Debes poner al menos una carta");
+        }
+        
     }
-
-    //public void StartAutomata()
-    //{
-    //    // Si ya se inicio el automata. No hacer nada.
-    //    if (!uiString.parent.gameObject.activeSelf)
-    //    {
-    //        return;
-    //    }
-
-    //    // Auxiliar para la creacion de un simbolo.
-    //    GameObject symbolPrefa = null;        
-    //    //CreateSymbol(symbolE, constants.SymbolEpsilonName);
-
-    //    for (int i = 0; i < uiString.childCount; i++)
-    //    {
-    //        Transform uiSymbol = uiString.GetChild(i);
-    //        // Se busca el modelo 3d del symbolo.
-    //        foreach (GameObject symbol in symbolsAlphabet)
-    //        {
-    //            if (symbol.name.Equals(uiSymbol.name))
-    //            {
-    //                symbolPrefa = symbol;
-    //            }
-    //        }
-    //        // Se crea el symbolo.            
-    //        CreateSymbol(symbolPrefa, uiSymbol.name);
-    //    }
-
-    //    // Se crea el symbolo E.
-    //    GameObject lastSymbol = CreateSymbol(symbolE, constants.SymbolEpsilonName);
-
-    //    // Se inicia el automata.
-    //    StartCoroutine(nameof(MoveSymbols));
-
-    //    CameraController.instance.followTransform = lastSymbol.transform;
-
-    //    // Se ocultan elementos de la interfaz de usaurio.
-    //    for (int i = 1; i < uiString.parent.childCount; i++)
-    //    {
-    //        uiString.parent.GetChild(i).gameObject.SetActive(false);
-    //    }
-    //    // Se elimina el drag de los symbolos de la interfaz de usuario.
-    //    for (int i = 0; i < uiString.childCount; i++)
-    //    {
-    //        Destroy(uiString.GetChild(i).GetComponent<UISymbolDrag>());
-    //    }
-    //}
 
     public GameObject CreateSymbol(GameObject symbolModel)
     {
         GameObject newSymbol;
         newSymbol = Instantiate(symbolModel);
         newSymbol.name = symbolModel.name;
-        newSymbol.transform.SetParent(stringSymbols);
+        newSymbol.transform.position = symbols.transform.position;
+        newSymbol.transform.SetParent(symbols);
         return newSymbol;
     }
 
     public IEnumerator MoveSymbols()
-    {        
-        for (int i = 0; i < stringSymbols.childCount; i++)
+    {
+        for (int i = 0; i < symbols.childCount; i++)
         {
-            TransitionMove transitionMove = stringSymbols.GetChild(i).GetComponent<TransitionMove>();
+            TransitionMove transitionMove = symbols.GetChild(i).GetComponent<TransitionMove>();
             transitionMove.AddSplineContainer(transitionInitial);
             transitionMove.UpdateValues();
-            transitionMove.isPlay = true;
+            //transitionMove.isPlay = true; 
+            //yield return new WaitForSeconds(symbolTimeout);
+        }
+        for (int i = 0; i < symbols.childCount; i++)
+        {
+            symbols.GetChild(i).GetComponent<TransitionMove>().isPlay = true;
             yield return new WaitForSeconds(symbolTimeout);
         }
-        //Destroy(symbols.GetChild(0).gameObject);
+    }
+
+    public IEnumerator DeleteSymbols()
+    {        
+        for (int i = 0; i < symbols.childCount; i++)
+        {
+            Destroy(symbols.GetChild(i).gameObject);
+            yield return new WaitForSeconds(20f);
+        }        
     }
 
     public void Restart(string nivelName)
@@ -148,9 +122,4 @@ public class NivelManager : MonoBehaviour
         //DOTween.Clear(true);
         SceneManager.LoadScene(nivelName);
     }
-
-    //public void RestartTest()
-    //{
-    //    SceneManager.LoadScene(constants.SceneNameNivelTest);
-    //}
 }

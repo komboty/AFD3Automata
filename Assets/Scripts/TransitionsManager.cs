@@ -27,18 +27,13 @@ public class TransitionsManager : MonoBehaviour
         //// Si la cadena entro al estado.
         if (other.name.Equals(constants.SymbolEpsilonName))
         {
-            // Se pone el numero del primer simbolo de la cadena
-            // Numeros de hijos (0 Objeto auxilar) (1 El simbolo a destruir)
-            //int numFirstChild = 2;
             Transform symbols = other.transform.parent;
-            int numFirstSymbol = 0;
             string nameFirstSymbol;
 
             // Si es estado inicial y es la primera vez, no se destruye un simbolo. 
             if (auxStateInitial && isStateInitial)
             {
-                //Y el primer simbolo es el 1.                
-                //numFirstChild = 1;
+                //Y el primer simbolo es el 1.
                 nameFirstSymbol = symbols.GetChild(1).name;
                 auxStateInitial = false;
             }
@@ -46,31 +41,28 @@ public class TransitionsManager : MonoBehaviour
             else
             {
                 // Si hay tres o mas simbolos, el primero es el 2 del arreglo, sino el primero es 1.
-                numFirstSymbol = symbols.childCount >= 3 ? 2 : 1;
+                int numFirstSymbol = symbols.childCount >= 3 ? 2 : 1;
                 nameFirstSymbol = symbols.GetChild(numFirstSymbol).name;
                 // Se destruye el primer simbolo de la cadena.
                 Destroy(symbols.GetChild(1).gameObject);
 
+                // Si solo quedan dos simbolos en la cadena, se muetra un mensaje y se finaliza.
                 if (numFirstSymbol == 1)
                 {
+                    // Si es estado final.
                     if (isStateFinal)
-                    {
-                        Debug.Log(symbols.childCount);
                         //uiWinner.SetActive(true);
                         Debug.Log("Ganaste");
-                    }
+                    // Si no es estado final
                     else
-                    {
                         Debug.Log("Perdiste");
                         //uiLoser.SetActive(true);
-                    }
+
                     return;
                 }
             }            
 
-            Debug.Log(nameFirstSymbol);
-            //AddTransition(symbols, firstSymbol);
-            // Se obtiene el primer simbolo de la acdena.
+            //Debug.Log(nameFirstSymbol);
             SplineContainer splineContainer = null;
 
             // Se obtine la transicion siguiente, segun el primer simbolo de la cadena.
@@ -91,52 +83,6 @@ public class TransitionsManager : MonoBehaviour
             for (int i = 0; i < symbols.childCount; i++)
                 symbols.GetChild(i).GetComponent<TransitionMove>()
                     .AddSplineContainer(splineContainer);
-
-            //Si el estado es final.
-            //if (isStateFinal && numFirstSymbol == 1)
-            //{
-            //    Debug.Log(symbols.childCount);
-            //    //uiWinner.SetActive(true);
-            //    Debug.Log("Ganaste");
-                
-            //}
-            //else
-            //{
-            //    Debug.Log("Perdiste");
-            //    //uiLoser.SetActive(true);
-            //}
-
         }
     }
-
-    /// <summary>
-    /// Agrega la siguiente transicion a todos los simbolos.
-    /// </summary>
-    /// <param name="symbols">Objeto que contiene todos los simbolos</param>
-    /// <param name="numFirstChild">Numero del primer simbolo</param>
-    //public void AddTransition(Transform symbols, Transform firstSymbol)//int numFirstChild)
-    //{
-    //    // Se obtiene el primer simbolo de la acdena.
-    //    //Transform firstSymbol = symbols.GetChild(numFirstChild);
-    //    SplineContainer splineContainer = null;
-
-    //    // Se obtine la transicion siguiente, segun el primer simbolo de la cadena.
-    //    for (int i = 0; i < transform.childCount; i++)
-    //    {
-    //        Transform transition = transform.GetChild(i);
-    //        //Debug.Log(transition.name + " " + firstSymbol.name);
-
-    //        // Si el primer simbolo de la cadena es igual al de la transicion.
-    //        if (transition.name.Equals(firstSymbol.name))
-    //        {
-    //            splineContainer = transition.GetChild(0).GetComponent<SplineContainer>();
-    //            break;
-    //        }
-    //    }
-
-    //    // Se agrega la siguiente transicion a todos los simbolos de la cadena.
-    //    for (int i = 0; i < symbols.childCount; i++)
-    //        symbols.GetChild(i).GetComponent<TransitionMove>()
-    //            .AddSplineContainer(splineContainer);
-    //}
 }
