@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Space: 0
   m_Spacing: {x: 1, y: 1}
   m_Up: 1
-  m_Forward: 0
+  m_Forward: 2
   m_PositionOffset:
     setup: 1
     min: {x: 0, y: 7, z: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8519755241087299058}
   m_Layer: 0
-  m_Name: State
+  m_Name: State Mod 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   nivelManager: {fileID: 0}
   uiString: {fileID: 0}
   uiSymbolColorDelete: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  uIMessagesManager: {fileID: 0}
   isStateInitial: 0
   isStateFinal: 0
 --- !u!1 &3080714375809625291
@@ -689,7 +690,7 @@ MonoBehaviour:
   m_Space: 0
   m_Spacing: {x: 1, y: 1}
   m_Up: 1
-  m_Forward: 0
+  m_Forward: 2
   m_PositionOffset:
     setup: 1
     min: {x: 0, y: 7, z: 0}

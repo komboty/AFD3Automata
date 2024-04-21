@@ -13,7 +13,7 @@ public class TransitionsManager : MonoBehaviour
     // Constantes del juego.
     public Constants constants;
     // Para conocer el tiempo de creacion de los simbolos.
-    public NivelManager nivelManager;
+    public Mod1Manager mod1Manager;
     // Interfza del usuario para los simbolos.
     public Transform uiString;
     public Color uiSymbolColorDelete = new Color(0.5f, 0.5f, 0.5f, 0.5f);
@@ -109,7 +109,7 @@ public class TransitionsManager : MonoBehaviour
     {
         TransitionMove transitionMove = symbolE.parent.GetChild(1).GetComponent<TransitionMove>();
         //Debug.Log(nivelManager.symbolTimeout - (1f / transitionMove.speed));
-        yield return new WaitForSeconds(nivelManager.symbolTimeout);// - (1f / transitionMove.speed));
+        yield return new WaitForSeconds(mod1Manager.symbolTimeout);// - (1f / transitionMove.speed));
         symbolE.GetComponent<TransitionMove>().CopyValuesTo(transitionMove);        
     }
 }

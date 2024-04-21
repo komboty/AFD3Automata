@@ -18,7 +18,8 @@ public class Constants : MonoBehaviour
     /// <summary>
     /// Nombres de Escenas.
     /// </summary>
-    //public string nameSceneMenu = "MainMenu";
+    public string NAME_SCENE_MOD1_STATES3 = "Mod1States3";
+    public string NAME_SCENE_MOD2_STATES2 = "Mod2States2";
 
     /// <summary>
     /// Nombres de Inputs.
@@ -37,9 +38,13 @@ public class Constants : MonoBehaviour
     //public string tagWaypoint = "Waypoint";
     //public string tagString = "String";
     public string TAG_MAIN_CAMERA = "MainCamera";
+    public string TAG_TRANSITIONS = "Transitions";
+    public string TAG_PHATS_CANVAS = "PathsCanvas";
 
     /// <summary>
     /// Simbolos.
     /// </summary>
-    public string SYMBOL_UAX_NAME = "E";    
+    public string SYMBOL_UAX_NAME = "E";
+    public string SYMBOL_A_NAME = "A";
+    public string SYMBOL_B_NAME = "B";
 }

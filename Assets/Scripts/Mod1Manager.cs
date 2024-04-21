@@ -8,7 +8,7 @@ using UnityEngine.Splines;
 /// <summary>
 /// Script que maneja el nivel.
 /// </summary>
-public class NivelManager : MonoBehaviour
+public class Mod1Manager : MonoBehaviour
 {
     // Constantes del juego.
     public Constants constants;
@@ -115,13 +115,6 @@ public class NivelManager : MonoBehaviour
             symbols.GetChild(i).GetComponent<TransitionMove>().isPlay = true;
             yield return new WaitForSeconds(symbolTimeout);
         }
-    }
-
-    public void Restart(string nivelName)
-    {
-        //DOTween.Clear(true);
-        DOTween.KillAll(true);
-        SceneManager.LoadScene(nivelName);
     }
 
     //public IEnumerator DeleteSymbols()

@@ -98,3 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   target: {fileID: 0}
+  isRotated: 1

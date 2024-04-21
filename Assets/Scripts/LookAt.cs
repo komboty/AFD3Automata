@@ -11,6 +11,8 @@ public class LookAt : MonoBehaviour
     // Objetivo a seguir.
     public GameObject target;
     //public float duration = 0.5f;
+    // Bandera que rota el objetivo.
+    public bool isRotated;
 
     private void Start()
     {
@@ -18,8 +20,12 @@ public class LookAt : MonoBehaviour
     }
 
     void Update()
-    {        
-        transform.LookAt(target.transform.position);
+    {
+        if (isRotated)
+            transform.LookAt(target.transform.position);
+        else
+            transform.forward = target.transform.forward; 
+
         //Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
         //transform.DORotateQuaternion(targetRotation, duration);
     }
