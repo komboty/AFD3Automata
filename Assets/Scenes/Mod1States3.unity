@@ -556,7 +556,7 @@ MonoBehaviour:
   symbolTimeout: 0.4
   transitionInitial: {fileID: 231955811}
   uiString: {fileID: 1332614236}
-  btnPlay: {fileID: 726805755}
+  uiButtons: {fileID: 1602001688655494064}
   symbolE: {fileID: 10656291764993496, guid: 752fcffafbe9b444fae2ff93acb0005d, type: 3}
   symbolsModel:
   - {fileID: 787066344607949047, guid: dbe3377fbeb98414fb55a27ae6b8d52a, type: 3}
@@ -716,11 +716,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6845140542601796958, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
   m_PrefabInstance: {fileID: 4238769956751513797}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &726805755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7311975835691050747, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
-  m_PrefabInstance: {fileID: 1602001688655494063}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &856242987
 PrefabInstance:
@@ -2203,6 +2198,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
+--- !u!224 &1602001688655494064 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3511012835011458601, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
+  m_PrefabInstance: {fileID: 1602001688655494063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3967340401907112511
 PrefabInstance:
   m_ObjectHideFlags: 0

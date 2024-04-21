@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750527966432282288, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9961947
       objectReference: {fileID: 0}
     - target: {fileID: 5750527966432282288, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_LocalRotation.x
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750527966432282288, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.08715578
       objectReference: {fileID: 0}
     - target: {fileID: 5750527966432282288, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -90,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750527966432282288, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6919222238317652593, guid: 0523b5c06f14546429272743684ea623, type: 3}
       propertyPath: m_Name
-      value: UI Symbol B Variant
+      value: UI Symbol B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

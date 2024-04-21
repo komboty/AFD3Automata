@@ -13,7 +13,8 @@ public class Constants : MonoBehaviour
     public string MESSAGES_MAX_SYMBOLS = "Por el momento\nSolo puedes poner {0} Símbolos";
     public string MESSAGES_WINNER = "Ganaste!!!\nFelicidades";
     public string MESSAGES_LOSER = "Inténtalo otra vez";
-    public string MESSAGES_NO_EMPTY = "Debes poner al\nmenos un Símbolos";
+    public string MESSAGES_NO_EMPTY_SYMBOLS = "Debes poner al\nmenos un Símbolos";
+    public string MESSAGES_NO_EMPTY_TRANSITIONS = "Debes crear\ntodas las Transiciones";
 
     /// <summary>
     /// Nombres de Escenas.

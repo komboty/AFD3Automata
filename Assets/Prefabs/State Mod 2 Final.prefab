@@ -225,6 +225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2488400600692760850, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: uiTransitionColorClick.a
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3173053173025792404, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
       propertyPath: isStateFinal
       value: 1
@@ -271,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876554434617487434, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
       propertyPath: m_Name
-      value: State Mod 2 Final Variant
+      value: State Mod 2 Final
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

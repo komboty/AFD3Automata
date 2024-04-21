@@ -17,24 +17,24 @@ public class Mod1Manager : MonoBehaviour
     // Contenedor de simbolos (cadena).
     public Transform symbols;
     //Tiempo para moverse entre cada symbolo.
-    public float symbolTimeout;
+    public float symbolTimeout = 0.4f;
     // Transicion inicial.
     public SplineContainer transitionInitial;
     // Cadena hecha por el usuario.
     public Transform uiString;
-    // Boton de play.
-    public GameObject btnPlay;
+    // Botones.
+    public Transform uiButtons;
     // Prefabs del simbolo E.
     public GameObject symbolE;
     // Prefabs de cada simbolo del alfabeto del automata.
     public List<GameObject> symbolsModel;
         
 
-    public void StartAutomata()
+    public virtual void StartAutomata()
     {
         // Si ya se inicio el automata. No hacer nada.
-        if (!uiString.parent.GetChild(2).gameObject.activeSelf)
-            return;
+        //if (!uiString.parent.GetChild(2).gameObject.activeSelf)
+        //    return;
 
         //Debug.Log("Ini");
         //StartCoroutine(nameof(DeleteSymbols));
@@ -67,7 +67,7 @@ public class Mod1Manager : MonoBehaviour
             // Se ocultan elementos de la interfaz de usaurio.
             //for (int i = 1; i < uiString.parent.childCount; i++)
             uiString.parent.GetChild(2).gameObject.SetActive(false);
-            btnPlay.SetActive(false);
+            uiButtons.GetChild(0).gameObject.SetActive(false);
 
             // Se desabilita el drag de los symbolos de la interfaz de usuario.
             for (int i = 0; i < uiString.childCount; i++)
@@ -84,7 +84,7 @@ public class Mod1Manager : MonoBehaviour
             for (int i = 0; i < symbols.childCount; i++)
                 Destroy(symbols.GetChild(i).gameObject);
             // Se muestra mensaje de error.
-            uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY);
+            uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY_SYMBOLS);
         }
 
     }

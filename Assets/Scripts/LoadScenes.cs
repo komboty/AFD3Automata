@@ -17,4 +17,5 @@ public class LoadScenes : MonoBehaviour
     }
 
     public void LoadMod1State3() => Restart(constants.NAME_SCENE_MOD1_STATES3);
+    public void LoadMod2State2() => Restart(constants.NAME_SCENE_MOD2_STATES2);
 }
