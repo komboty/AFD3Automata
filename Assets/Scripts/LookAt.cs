@@ -7,12 +7,12 @@ using UnityEngine.UIElements;
 public class LookAt : MonoBehaviour
 {
     // Constantes del juego.
-    public Constants constants;
-    // Objetivo a seguir.
-    public GameObject target;
+    public Constants constants;    
     //public float duration = 0.5f;
     // Bandera que rota el objetivo.
     public bool isRotated;
+    // Objetivo a seguir.
+    private GameObject target;
 
     private void Start()
     {

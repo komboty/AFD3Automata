@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class PathsManager : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PathsManager : MonoBehaviour
     public Transform transition;
     public GameObject pathA;
     public GameObject pathB;
-    public GameObject effectModJoin;
-    public bool isModJoint = false;
+    public GameObject uiUnionMode;
+    public GameObject uiButtons;    
 
     private Ray ray;
     private RaycastHit raycastHitInfo;
@@ -24,13 +25,15 @@ public class PathsManager : MonoBehaviour
     private string pathName;
     public Transform auxPointsA;
     public Transform auxPointsB;
+    private bool isUnionMode = false;
+        
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && isModJoint)
-            ActiveAll();
+        //if (Input.GetMouseButtonDown(1) && isModJoint)
+        //    ActiveAll();
 
-        if (Input.GetMouseButtonDown(0) && isModJoint)
+        if (Input.GetMouseButtonDown(0) && isUnionMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHitInfo) && 
@@ -53,6 +56,12 @@ public class PathsManager : MonoBehaviour
         pathName = constants.SYMBOL_B_NAME;
     }
 
+    public void CancelPath()
+    {
+        if (isUnionMode)
+            ActiveAll();
+    }
+
     public void DesActiveAll(int numButton)
     {
         //Debug.Log("DesActiveAll");
@@ -60,11 +69,13 @@ public class PathsManager : MonoBehaviour
         canvases = GameObject.FindGameObjectsWithTag(constants.TAG_PHATS_CANVAS);
         foreach (GameObject canva in canvases)
             canva.SetActive(false);
+        uiButtons.SetActive(false);
 
         gameObject.SetActive(true);
         transform.GetChild(numButton).gameObject.SetActive(false);
-        isModJoint = true;
-        effectModJoin.SetActive(true);
+        isUnionMode = true;
+        uiUnionMode.SetActive(true);
+        uiUnionMode.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => CancelPath());
     }
 
     public void ActiveAll()
@@ -73,14 +84,14 @@ public class PathsManager : MonoBehaviour
         // Se activan todos los canvas
         foreach (GameObject canva in canvases)
             canva.SetActive(true);
+        uiButtons.SetActive(true);
 
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);
 
-        isModJoint = false;
-        effectModJoin.SetActive(false);
-
-
+        isUnionMode = false;
+        uiUnionMode.SetActive(false);
+        uiUnionMode.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
     }
 
     public void DeletePath(string pathName)

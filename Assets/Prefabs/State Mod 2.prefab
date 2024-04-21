@@ -1987,7 +1987,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
-  target: {fileID: 0}
   isRotated: 0
 --- !u!114 &2488400600692760850
 MonoBehaviour:
@@ -2005,8 +2004,7 @@ MonoBehaviour:
   transition: {fileID: 736507867185297788}
   pathA: {fileID: 4150584150495764330, guid: 329b2bc6f77676b4b8cef0ce796a4cbd, type: 3}
   pathB: {fileID: 7127383564684069291, guid: 05861a41c4816cc4b8384b5e40d980b4, type: 3}
-  effectModJoin: {fileID: 0}
-  isModJoint: 0
+  uiButtons: {fileID: 0}
   auxPointsA: {fileID: 4719519755757558305}
   auxPointsB: {fileID: 1754651581347387259}
 --- !u!1 &8643452472942017928

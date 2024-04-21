@@ -51,18 +51,18 @@ PrefabInstance:
     - target: {fileID: 876555798609407520, guid: 15c98bb5925c98045b340a50e4ac7d00, type: 3}
       propertyPath: m_ItemsToInstantiate.Array.data[0].Prefab
       value: 
-      objectReference: {fileID: 5489518406561124167, guid: bf8450f09e94aee4790b24e5e340e9b6, type: 3}
+      objectReference: {fileID: 8624909397001564410, guid: 32694c2f2cf46624dad6c4bc9bb67d1f, type: 3}
     - target: {fileID: 1237291963503387253, guid: 15c98bb5925c98045b340a50e4ac7d00, type: 3}
       propertyPath: m_ItemsToInstantiate.Array.data[0].Prefab
       value: 
-      objectReference: {fileID: 5795258353961180434, guid: 71508ed11c6751343a7ba07320d2ade7, type: 3}
+      objectReference: {fileID: 5973386740155040197, guid: 0adb22359c07f6246a4864c825daa8c0, type: 3}
     - target: {fileID: 1436358971064498431, guid: 15c98bb5925c98045b340a50e4ac7d00, type: 3}
       propertyPath: m_ItemsToInstantiate.Array.data[0].Prefab
       value: 
       objectReference: {fileID: 7410334058012095622, guid: 22e5a3a34a474dd4087b66983a9ec63b, type: 3}
     - target: {fileID: 6905297652819353249, guid: 15c98bb5925c98045b340a50e4ac7d00, type: 3}
       propertyPath: m_Name
-      value: Path Name Variant
+      value: Path B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

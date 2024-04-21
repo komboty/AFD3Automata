@@ -2633,7 +2633,7 @@ MonoBehaviour:
   constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   uiString: {fileID: 4012052333914998814}
   uiMessages: {fileID: 7102565279995822034}
-  prefabUISymbol: {fileID: 9172670340337854245, guid: 72d08d97c4bafe840829e12f376cae38, type: 3}
+  prefabUISymbol: {fileID: 4595802124929567309, guid: a5c7caac5ce5cef41987363344f3393b, type: 3}
   maxNumSymbols: 6
   symbolDoScaleSize: 1.2
   symbolDoScaleTime: 0.2
