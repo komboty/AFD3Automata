@@ -16,7 +16,7 @@ public class PathsManager : MonoBehaviour
     public GameObject pathB;
     public GameObject uiUnionMode;
     public GameObject uiButtons;
-    public StatesCanvasManager statesCanvasManager;
+    public StatesManager statesManager;
 
     private Ray ray;
     private RaycastHit raycastHitInfo;    
@@ -26,7 +26,7 @@ public class PathsManager : MonoBehaviour
     private string pathName;
     public Transform auxPointsA;
     public Transform auxPointsB;
-    public Color uiTransitionColorClick = new Color(0.5f, 0.5f, 0.5f, 0.8f);
+    public Color uiTransitionColorClick = new Color(0.7f, 0.7f, 0.7f, 0.7f);
     private bool isUnionMode = false;
     private int numButtonClick;
 
@@ -36,15 +36,21 @@ public class PathsManager : MonoBehaviour
         //if (Input.GetMouseButtonDown(1) && isModJoint)
         //    ActiveAll();
 
+
         if (Input.GetMouseButtonDown(0) && isUnionMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHitInfo) && 
                 raycastHitInfo.transform.CompareTag(constants.TAG_TRANSITIONS))
             {
-                CreatePhat();
-                transform.GetChild(numButtonClick).GetComponent<Image>()
-                    .color = uiTransitionColorClick;
+                CreatePhat();                
+                DisableUnionMode();
+                raycastHitInfo.transform.GetComponent<OnMouseModelAnimation>().ExitAnimation();
+                // Se cambia el color del simbolo que se selcciono.
+                Button buttonClick = transform.GetChild(numButtonClick).GetComponent<Button>();
+                ColorBlock colorBlock = buttonClick.colors;
+                colorBlock.normalColor = uiTransitionColorClick;
+                buttonClick.colors = colorBlock;
             }
                 
         }
@@ -52,7 +58,7 @@ public class PathsManager : MonoBehaviour
 
     public void InitPathA()
     {
-        DesActiveAll(1);
+        ActivateUnionMode(1);
         pathPrefab = pathA;
         pathName = constants.SYMBOL_A_NAME;
         numButtonClick = 0;
@@ -60,7 +66,7 @@ public class PathsManager : MonoBehaviour
 
     public void InitPathB()
     {
-        DesActiveAll(0);
+        ActivateUnionMode(0);
         pathPrefab = pathB;
         pathName = constants.SYMBOL_B_NAME;
         numButtonClick = 1;
@@ -69,14 +75,14 @@ public class PathsManager : MonoBehaviour
     public void CancelPath()
     {
         if (isUnionMode)
-            ActiveAll();
+            DisableUnionMode();
     }
 
-    public void DesActiveAll(int numButtonDisable)
+    public void ActivateUnionMode(int numButtonDisable)
     {
         //Debug.Log("DesActiveAll");
         // Se desactivan todos los canvas
-        statesCanvasManager.DesActiveAll();
+        statesManager.CanvasesSetActive(false); 
         uiButtons.SetActive(false);
 
         gameObject.SetActive(true);
@@ -84,13 +90,15 @@ public class PathsManager : MonoBehaviour
         isUnionMode = true;
         uiUnionMode.SetActive(true);
         uiUnionMode.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => CancelPath());
+
+        statesManager.ModelsAnimationSetActive(true);
     }
 
-    public void ActiveAll()
+    public void DisableUnionMode()
     {
         //Debug.Log("ActiveAll");
         // Se activan todos los canvas
-        statesCanvasManager.ActiveAll();
+        statesManager.CanvasesSetActive(true);
         uiButtons.SetActive(true);
 
         for (int i = 0; i < transform.childCount; i++)
@@ -99,6 +107,8 @@ public class PathsManager : MonoBehaviour
         isUnionMode = false;
         uiUnionMode.SetActive(false);
         uiUnionMode.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
+
+        statesManager.ModelsAnimationSetActive(false);
     }
 
     public void DeletePath(string pathName)
@@ -142,8 +152,6 @@ public class PathsManager : MonoBehaviour
         splinesInstantiate[2].InstantiateMethod = SplineInstantiate.Method.InstanceCount;
         //foreach (SplineInstantiate splineInstantiate in splinesInstantiate)
         //    splineInstantiate.enabled = true;
-
-        ActiveAll();
     }
 
     public void AddKnotTo(Transform spline, Vector3 postion)

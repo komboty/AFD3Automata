@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 8125929435724493957}
   - component: {fileID: 962708322834435946}
   - component: {fileID: 3173053173025792404}
+  - component: {fileID: 4481436701242153016}
   m_Layer: 0
   m_Name: Transitions
   m_TagString: Transitions
@@ -952,6 +953,23 @@ MonoBehaviour:
   uIMessagesManager: {fileID: 0}
   isStateInitial: 0
   isStateFinal: 0
+--- !u!114 &4481436701242153016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261164594195280548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b22d0088e40784184ebe3848ce4729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doScaleSizeEnter: 1.2
+  doScaleSizeExit: 1
+  doScaleTime: 0.2
+  model: {fileID: 0}
+  isAnimated: 0
 --- !u!1 &7285840528206698278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,10 +1289,10 @@ MonoBehaviour:
   pathB: {fileID: 7127383564684069291, guid: 05861a41c4816cc4b8384b5e40d980b4, type: 3}
   uiUnionMode: {fileID: 0}
   uiButtons: {fileID: 0}
-  statesCanvasManager: {fileID: 0}
+  statesManager: {fileID: 0}
   auxPointsA: {fileID: 4719519755757558305}
   auxPointsB: {fileID: 1754651581347387259}
-  uiTransitionColorClick: {r: 0.5, g: 0.5, b: 0.5, a: 0.8}
+  uiTransitionColorClick: {r: 0.7, g: 0.7, b: 0.7, a: 0.69803923}
 --- !u!1 &8739902544966539834
 GameObject:
   m_ObjectHideFlags: 0

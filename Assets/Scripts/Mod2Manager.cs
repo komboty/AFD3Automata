@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Mod2Manager : Mod1Manager
 {
-    public StatesCanvasManager statesCanvasManager;
-    public List<Transform> transitions;    
+    public StatesManager statesManager;    
 
     public override void StartAutomata()
     {
         // Se validad que todas las transiciones esten creadas.
-        foreach (Transform transition in transitions)
+        foreach (GameObject transition in statesManager.transitions)
         {            
-            if (!transition.childCount.Equals(symbolsModel.Count))
+            if (!transition.transform.childCount.Equals(symbolsModel.Count))
             {
                 // Se muestra mensaje de error.
                 uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY_TRANSITIONS);
@@ -22,7 +21,7 @@ public class Mod2Manager : Mod1Manager
 
         // Se ocultan elementos de la pantalla.
         uiButtons.GetChild(2).gameObject.SetActive(false);
-        statesCanvasManager.DesActiveAll();
+        statesManager.CanvasesSetActive(false);
 
         // Se inicia el automata.
         base.StartAutomata();

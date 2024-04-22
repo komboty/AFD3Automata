@@ -225,10 +225,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2488400600692760850, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
-      propertyPath: uiTransitionColorClick.a
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 3173053173025792404, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
       propertyPath: isStateFinal
       value: 1
