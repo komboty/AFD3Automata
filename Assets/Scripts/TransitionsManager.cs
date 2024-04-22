@@ -99,12 +99,20 @@ public class TransitionsManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // Cada que sale el simbolo auxiliar de un esatdo,
+        // Se actualiza su posicion al del primer simbolo de la cadena.
         if (other.name.Equals(constants.SYMBOL_UAX_NAME))
         {
             StartCoroutine(UpdatePositionAux(other.transform));
         }
     }
 
+
+    /// <summary>
+    /// Actualiza la posicion del simbolo auxiliar al del primer simbolo de la cadena.
+    /// </summary>
+    /// <param name="symbolE">Simbolo auxiliar</param>
+    /// <returns></returns>
     public IEnumerator UpdatePositionAux(Transform symbolE)
     {
         TransitionMove transitionMove = symbolE.parent.GetChild(1).GetComponent<TransitionMove>();

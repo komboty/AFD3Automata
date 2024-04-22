@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Script que controla eventos del mouse, del objeto que tenga este script.
+/// </summary>
 public class UIPointerAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Valores de animacion

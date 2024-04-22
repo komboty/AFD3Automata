@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 
 /// <summary>
-/// Script que maneja el nivel.
+/// Script que maneja el Modo 1 del juego (Dado un automata poner una cadena valida).
 /// </summary>
 public class Mod1Manager : MonoBehaviour
 {
@@ -29,19 +29,12 @@ public class Mod1Manager : MonoBehaviour
     // Prefabs de cada simbolo del alfabeto del automata.
     public List<GameObject> symbolsModel;
         
-
+    /// <summary>
+    /// Inicia el automata.
+    /// </summary>
     public virtual void StartAutomata()
     {
-        // Si ya se inicio el automata. No hacer nada.
-        //if (!uiString.parent.GetChild(2).gameObject.activeSelf)
-        //    return;
-
-        //Debug.Log("Ini");
-        //StartCoroutine(nameof(DeleteSymbols));
-        //Debug.Log("Fin");
-
         // Objeto auxiliar para saber donde inicia la cadena
-        //GameObject lastSymbol = CreateSymbol(symbolE);
         CreateSymbol(symbolE);
 
         // Se crean los modelos 3d de cada simbolo.        
@@ -65,7 +58,6 @@ public class Mod1Manager : MonoBehaviour
             CameraController.instance.followTransform = symbols.GetChild(0);
 
             // Se ocultan elementos de la interfaz de usaurio.
-            //for (int i = 1; i < uiString.parent.childCount; i++)
             uiString.parent.GetChild(2).gameObject.SetActive(false);
             uiButtons.GetChild(0).gameObject.SetActive(false);
 
@@ -76,6 +68,7 @@ public class Mod1Manager : MonoBehaviour
                 uiString.GetChild(i).GetComponent<UIPointerAnimation>().enabled = false;
             }
 
+            // Se incia el movimiento del los simbolos por el automata.
             StartCoroutine(nameof(MoveSymbols));
         }
         else
@@ -89,6 +82,11 @@ public class Mod1Manager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Crea un simbolo que recorrera el automata.
+    /// </summary>
+    /// <param name="symbolModel">Modelo del simbolo</param>
+    /// <returns>Simbolo</returns>
     public GameObject CreateSymbol(GameObject symbolModel)
     {
         GameObject newSymbol;
@@ -100,29 +98,24 @@ public class Mod1Manager : MonoBehaviour
         return newSymbol;
     }
 
+    /// <summary>
+    /// Inicia el moviemnto de los simbolos por el automata.
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator MoveSymbols()
     {
+        // Se agrega la transicion inicial a los simbolos.
         for (int i = 0; i < symbols.childCount; i++)
         {
             TransitionMove transitionMove = symbols.GetChild(i).GetComponent<TransitionMove>();
             transitionMove.AddSplineContainer(transitionInitial);
             transitionMove.UpdateValues();
-            //transitionMove.isPlay = true; 
-            //yield return new WaitForSeconds(symbolTimeout);
         }
+        // Se inicia el moviemnto por el automata.
         for (int i = 0; i < symbols.childCount; i++)
         {
             symbols.GetChild(i).GetComponent<TransitionMove>().isPlay = true;
             yield return new WaitForSeconds(symbolTimeout);
         }
     }
-
-    //public IEnumerator DeleteSymbols()
-    //{
-    //    for (int i = 0; i < symbols.childCount; i++)
-    //    {
-    //        Destroy(symbols.GetChild(i).gameObject);
-    //        yield return new WaitForSeconds(0.1f);
-    //    }
-    //}
 }

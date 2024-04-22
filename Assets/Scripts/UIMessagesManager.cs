@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Script que controla todos los mensajes de texto que se muestra al usuario.
+/// </summary>
 public class UIMessagesManager : MonoBehaviour
 {
     // Constantes del juego.
@@ -20,6 +23,10 @@ public class UIMessagesManager : MonoBehaviour
     public float doScaleSize = 1.3f;
     public float doScaleTime = 0.35f;    
 
+    /// <summary>
+    /// Muestra panel en pantalla con un mensajes de texto.
+    /// </summary>
+    /// <param name="text">Texto a mostrar</param>
     public void ShowMessage(string text)
     {
         panelBack.gameObject.SetActive(true);
@@ -32,12 +39,18 @@ public class UIMessagesManager : MonoBehaviour
                 });
     }
 
+    /// <summary>
+    /// Evento que ejecuta el boton del panel para mensajes de texto.
+    /// </summary>
     public void OnOKMessage()
     {
         panelBack.gameObject.SetActive(false);
         panelMessages.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Muestra panel en pantalla con un mensajes de ganador.
+    /// </summary>
     public void ShowWinner()
     {
         panelBack.gameObject.SetActive(true);
@@ -49,6 +62,9 @@ public class UIMessagesManager : MonoBehaviour
                 );
     }
 
+    /// <summary>
+    /// Muestra panel en pantalla con un mensajes de perdedor.
+    /// </summary>
     public void ShowLoser()
     {
         panelBack.gameObject.SetActive(true);

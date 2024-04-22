@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script que rota al objeto que tenga este script con animacion.
+/// </summary>
 public class CircleRotate : MonoBehaviour
 {
     public float time = 150f;

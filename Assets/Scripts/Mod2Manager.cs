@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script que maneja el Modo 2 del juego (Dada una cadena construir un Automata que pueda la valide).
+/// </summary>
 public class Mod2Manager : Mod1Manager
 {
+    // Estados del automata.
     public StatesManager statesManager;    
 
     public override void StartAutomata()

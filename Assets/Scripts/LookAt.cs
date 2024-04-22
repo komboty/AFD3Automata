@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// Script que realiza rotar al objeto que tenga este script hacia la camara principal.
+/// </summary>
 public class LookAt : MonoBehaviour
 {
     // Constantes del juego.
     public Constants constants;    
     //public float duration = 0.5f;
-    // Bandera que rota el objetivo.
+    // El objetivo esta rotado?.
     public bool isRotated;
     // Objetivo a seguir.
     private GameObject target;
@@ -21,6 +24,7 @@ public class LookAt : MonoBehaviour
 
     void Update()
     {
+        // Si el objetivo esta rotado.
         if (isRotated)
             transform.LookAt(target.transform.position);
         else
