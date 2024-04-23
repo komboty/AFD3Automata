@@ -49,6 +49,15 @@ MonoBehaviour:
 
     Felicidades'
   MESSAGES_LOSER: "Int\xE9ntalo otra vez"
-  MESSAGES_NO_EMPTY: "Debes poner al\nmenos un S\xEDmbolos"
+  MESSAGES_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
+  MESSAGES_NO_EMPTY_TRANSITIONS: 'Debes conectar
+
+    todas las Transiciones'
+  NAME_SCENE_MOD1_STATES3: Mod1States3
+  NAME_SCENE_MOD2_STATES2: Mod2States2
   TAG_MAIN_CAMERA: MainCamera
+  TAG_TRANSITIONS: Transitions
+  TAG_PHATS_CANVAS: PathsCanvas
   SYMBOL_UAX_NAME: E
+  SYMBOL_A_NAME: A
+  SYMBOL_B_NAME: B
