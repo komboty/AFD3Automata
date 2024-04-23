@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3442815457393832811, guid: 370f74b3169e64c4796f3f730844e5d4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0351f99b4b7a0a94d997eb56b8272a76, type: 2}
+      objectReference: {fileID: 2100000, guid: bea9390531f24c34a98679bf16eeee14, type: 2}
     - target: {fileID: 7018589586153802722, guid: 370f74b3169e64c4796f3f730844e5d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7870082330124487877, guid: 370f74b3169e64c4796f3f730844e5d4, type: 3}
       propertyPath: m_Name
-      value: Symbol B Label Variant
+      value: Symbol B Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
