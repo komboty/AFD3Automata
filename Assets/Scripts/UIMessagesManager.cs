@@ -9,8 +9,6 @@ using UnityEngine;
 /// </summary>
 public class UIMessagesManager : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;
     // Panel que bloquea las acciones de la pantalla.
     public Transform panelBack;
     // Panel donde muestran mensajes al usuario.
@@ -55,7 +53,7 @@ public class UIMessagesManager : MonoBehaviour
     {
         panelBack.gameObject.SetActive(true);
         panelWinner.gameObject.SetActive(true);
-        panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = constants.MESSAGES_WINNER;
+        panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGES_WINNER;
         panelWinner.DOScale(0f, 0.01f)
                 .OnComplete(() => panelWinner.DOScale(doScaleSize, doScaleTime)
                     .OnComplete(() => panelWinner.DOScale(1f, doScaleTime))
@@ -69,7 +67,7 @@ public class UIMessagesManager : MonoBehaviour
     {
         panelBack.gameObject.SetActive(true);
         panelLoser.gameObject.SetActive(true);
-        panelLoser.GetChild(0).GetComponent<TextMeshProUGUI>().text = constants.MESSAGES_LOSER;
+        panelLoser.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGES_LOSER;
         panelLoser.DOShakeScale(doScaleTime);
     }
 }

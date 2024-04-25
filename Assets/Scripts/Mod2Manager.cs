@@ -18,9 +18,9 @@ public class Mod2Manager : Mod1Manager
             if (!transition.transform.childCount.Equals(symbolsModel.Count))
             {
                 // Se muestra mensaje de error.
-                uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY_TRANSITIONS);
+                uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_TRANSITIONS);
                 return;
-            }            
+            }  
         }
 
         // Se ocultan elementos de la pantalla.

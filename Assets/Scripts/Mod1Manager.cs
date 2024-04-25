@@ -10,8 +10,6 @@ using UnityEngine.Splines;
 /// </summary>
 public class Mod1Manager : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;
     // Panel de mensajes.
     public UIMessagesManager uiMessages;
     // Contenedor de simbolos (cadena).
@@ -77,7 +75,7 @@ public class Mod1Manager : MonoBehaviour
             for (int i = 0; i < symbols.childCount; i++)
                 Destroy(symbols.GetChild(i).gameObject);
             // Se muestra mensaje de error.
-            uiMessages.ShowMessage(constants.MESSAGES_NO_EMPTY_SYMBOLS);
+            uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_SYMBOLS);
         }
 
     }

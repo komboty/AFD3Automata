@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -19,13 +20,15 @@ public class MainMenuManager : MonoBehaviour
     public float cameraTime = 1f;
     public float levelScale = 1.15f;
     public float levelTime = 0.2f;
+    public Transform uiMaxSymbols;
+    public float uiMaxSymbolsScale = 1.15f;
+    public float uiMaxSymbolsTime = 0.2f;
 
     // Grid con los niveles.
-    public Transform levelsGrid;
+    public Transform uiLevels;
     // Esta en la pantalla principal
     private bool isMainScreen = true;
-    // Regresa la posion donde deberia estar el titulo en X.
-    private float getTitlePositionX() => isMainScreen ? 1.32f : 0f;
+
 
     void Start()
     {
@@ -67,13 +70,51 @@ public class MainMenuManager : MonoBehaviour
         mainCamera.DORotate(new Vector3(10f, 60f, 0f), cameraTime)
             .OnComplete(() =>
             {
-                levelsGrid.gameObject.SetActive(true);
-                foreach (Transform level in levelsGrid.GetChild(0))
+                uiLevels.gameObject.SetActive(true);
+                foreach (Transform level in uiLevels.GetChild(0))
                 {
                     level.DOScale(levelScale, levelTime)
                         .OnComplete(() => level.DOScale(1f, levelTime));
                 }
             }); 
         
-    }    
+    }
+
+    /// <summary>
+    /// Regresa la posion donde deberia estar el titulo en X.
+    /// </summary>
+    private float getTitlePositionX() => isMainScreen ? 1.32f : -1f;
+
+    /// <summary>
+    /// Muestra el panel para seleccionar el numero de maximo de simbolos.
+    /// </summary>
+    /// <param name="numBtnClick">Nivel que el usuario dio click</param>
+    public void OnActiveUIMaxSymbols(int numBtnClick)
+    {
+
+        uiMaxSymbols.gameObject.SetActive(true);
+        uiMaxSymbols.DOScale(0f, 0.01f)
+            .OnComplete(() => uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
+                .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime))
+            );
+        // Se ocultan los otros niveles.
+        Transform grid = uiLevels.GetChild(0);
+        grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperCenter;
+        for (int i = 0; i < grid.childCount; i++)
+            grid.GetChild(i).gameObject.SetActive(numBtnClick == i);
+    }
+
+    /// <summary>
+    /// Se oculta el panel para seleccionar el numero de maximo de simbolos.
+    /// </summary>
+    public void OnDeactivateUIMaxSymbols()
+    {
+        uiMaxSymbols.DOScale(0f, uiMaxSymbolsTime)
+            .OnComplete(() => uiMaxSymbols.gameObject.SetActive(false));
+        // Se ponen de nuevo los niveles.
+        Transform grid = uiLevels.GetChild(0);
+        grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperRight;
+        for (int i = 0; i < grid.childCount; i++)
+            grid.GetChild(i).gameObject.SetActive(true);
+    }
 }

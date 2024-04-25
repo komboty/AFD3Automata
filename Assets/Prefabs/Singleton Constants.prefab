@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6315275129729813160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992195778951336174}
+  - component: {fileID: 744892960597253403}
+  m_Layer: 0
+  m_Name: Singleton Constants
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1992195778951336174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315275129729813160}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744892960597253403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315275129729813160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bac7edaf5dc174fb868e761753729c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MESSAGES_MAX_SYMBOLS: "Solo puedes poner\n{0} S\xEDmbolos"
+  MESSAGES_WINNER: 'Felicidades
+
+    Ganaste!!!'
+  MESSAGES_LOSER: "Int\xE9ntalo otra vez"
+  MESSAGES_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
+  MESSAGES_NO_EMPTY_TRANSITIONS: 'Debes conectar
+
+    todas las Transiciones'
+  NAME_SCENE_MOD1_STATES3: Mod1States3
+  NAME_SCENE_MOD2_STATES2: Mod2States2
+  TAG_MAIN_CAMERA: MainCamera
+  TAG_TRANSITIONS: Transitions
+  TAG_PHATS_CANVAS: PathsCanvas
+  SYMBOL_UAX_NAME: E
+  SYMBOL_A_NAME: A
+  SYMBOL_B_NAME: B
+  GAME_MAX_SYMBOLS: 0

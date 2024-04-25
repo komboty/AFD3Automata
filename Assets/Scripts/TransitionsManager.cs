@@ -10,8 +10,6 @@ using UnityEngine.UI;
 /// </summary>
 public class TransitionsManager : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;
     // Para conocer el tiempo de creacion de los simbolos.
     public Mod1Manager mod1Manager;
     // Interfza del usuario para los simbolos.
@@ -30,7 +28,7 @@ public class TransitionsManager : MonoBehaviour
     {
         //Debug.Log(other.name);
         //// Si la cadena entro al estado.
-        if (other.name.Equals(constants.SYMBOL_UAX_NAME))
+        if (other.name.Equals(Constants.instance.SYMBOL_UAX_NAME))
         {
             Transform symbols = other.transform.parent;
             string nameFirstSymbol;
@@ -42,7 +40,7 @@ public class TransitionsManager : MonoBehaviour
                 nameFirstSymbol = symbols.GetChild(1).name;
                 auxStateInitial = false;
             }
-            // Si es estado inicial y es la segunda vez que pasa o si es cualquier otro estado.
+            // Si es estado inicial y es la segunda vez que pasa O si es cualquier otro estado.
             else
             {
                 // Si hay tres o mas simbolos, el primero es el 2 del arreglo, sino el primero es 1.
@@ -71,12 +69,10 @@ public class TransitionsManager : MonoBehaviour
                     // Se finaliza.
                     return;
                 }
-            }            
-
-            //Debug.Log(nameFirstSymbol);
-            SplineContainer splineContainer = null;
+            }
 
             // Se obtine la transicion siguiente, segun el primer simbolo de la cadena.
+            SplineContainer splineContainer = null;
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform transition = transform.GetChild(i);
@@ -101,7 +97,7 @@ public class TransitionsManager : MonoBehaviour
     {
         // Cada que sale el simbolo auxiliar de un esatdo,
         // Se actualiza su posicion al del primer simbolo de la cadena.
-        if (other.name.Equals(constants.SYMBOL_UAX_NAME))
+        if (other.name.Equals(Constants.instance.SYMBOL_UAX_NAME))
         {
             StartCoroutine(UpdatePositionAux(other.transform));
         }

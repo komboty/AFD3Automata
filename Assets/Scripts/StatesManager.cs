@@ -7,8 +7,6 @@ using UnityEngine;
 /// </summary>
 public class StatesManager : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;
     // Estados.
     public List<Transform> states;
     // Elementos de un estado.

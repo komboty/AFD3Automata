@@ -11,9 +11,6 @@ using UnityEngine.UI;
 /// </summary>
 public class PathsManager : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;
-
     // Objeto que agrupa las transiciones de un Estado.
     public Transform transitions;
     // Transiciones prefabricadas.
@@ -48,7 +45,7 @@ public class PathsManager : MonoBehaviour
             // Si el usuario dio click en un Estado
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHitInfo) && 
-                raycastHitInfo.transform.CompareTag(constants.TAG_TRANSITIONS))
+                raycastHitInfo.transform.CompareTag(Constants.instance.TAG_TRANSITIONS))
             {
                 // Se crea la transicion.
                 CreatePhat();
@@ -72,7 +69,7 @@ public class PathsManager : MonoBehaviour
     {
         ActivateUnionMode(1);
         pathPrefab = pathA;
-        pathName = constants.SYMBOL_A_NAME;
+        pathName = Constants.instance.SYMBOL_A_NAME;
         numButtonClick = 0;
     }
 
@@ -83,7 +80,7 @@ public class PathsManager : MonoBehaviour
     {
         ActivateUnionMode(0);
         pathPrefab = pathB;
-        pathName = constants.SYMBOL_B_NAME;
+        pathName = Constants.instance.SYMBOL_B_NAME;
         numButtonClick = 1;
     }
 
@@ -172,7 +169,7 @@ public class PathsManager : MonoBehaviour
         // Se obtiene la posicion del otro Estado al que se unira la transicion.
         Vector3 targetPostion = raycastHitInfo.transform.position - transitions.parent.position;
         //Debug.Log("transform.position - state " + targetPostion);
-        Transform transitionPoints = pathName.Equals(constants.SYMBOL_A_NAME) ? auxPointsA : auxPointsB;
+        Transform transitionPoints = pathName.Equals(Constants.instance.SYMBOL_A_NAME) ? auxPointsA : auxPointsB;
 
         // Se agregan puntos intermedios a la transaccion creada.
         // 0 si la transicion es al mismo Estado y 1 si es a otro Estado.

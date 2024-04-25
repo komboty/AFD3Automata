@@ -9,9 +9,6 @@ using UnityEngine.UIElements;
 /// </summary>
 public class LookAt : MonoBehaviour
 {
-    // Constantes del juego.
-    public Constants constants;    
-    //public float duration = 0.5f;
     // El objetivo esta rotado?.
     public bool isRotated;
     // Objetivo a seguir.
@@ -19,7 +16,7 @@ public class LookAt : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag(constants.TAG_MAIN_CAMERA);
+        target = GameObject.FindGameObjectWithTag(Constants.instance.TAG_MAIN_CAMERA);
     }
 
     void Update()

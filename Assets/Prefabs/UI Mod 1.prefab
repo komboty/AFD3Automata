@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f0e878264ce1f4591604d1a1a14f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   panelBack: {fileID: 7786796058060611965}
   panelMessages: {fileID: 2441745908797947419}
   panelWinner: {fileID: 79875357972178179}
@@ -1936,7 +1935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f041503141ccc04db482aa5ba53435c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   uiString: {fileID: 4012052333914998814}
   uiMessages: {fileID: 7102565279995822034}
   prefabUISymbol: {fileID: 8978808484780872477, guid: 6c472795ff5870e4fb529f2ac2450751, type: 3}
@@ -2630,7 +2628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f041503141ccc04db482aa5ba53435c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
   uiString: {fileID: 4012052333914998814}
   uiMessages: {fileID: 7102565279995822034}
   prefabUISymbol: {fileID: 4595802124929567309, guid: a5c7caac5ce5cef41987363344f3393b, type: 3}
