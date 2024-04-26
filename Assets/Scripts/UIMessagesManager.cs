@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Script que controla todos los mensajes de texto que se muestra al usuario.
@@ -35,12 +36,6 @@ public class UIMessagesManager : MonoBehaviour
         panelMessages.DOScale(0f, 0f);                
         panelMessages.DORotate(new Vector3(0f, 360f, 0f), doScaleTime, RotateMode.FastBeyond360);
         panelMessages.DOScale(1f, doScaleTime);
-                
-        //panelMessages.DOScale(0f, 0.01f)
-        //        .OnComplete(() => {
-        //            panelMessages.DORotate(new Vector3(0f, 360f, 0f), doScaleTime, RotateMode.FastBeyond360);
-        //            panelMessages.DOScale(1f, doScaleTime);
-        //        });
     }
 
     /// <summary>
@@ -56,36 +51,25 @@ public class UIMessagesManager : MonoBehaviour
     /// <summary>
     /// Muestra panel en pantalla con un mensajes de ganador.
     /// </summary>
-    public void ShowWinner()
+    public void ShowWinner(string oldScoreTotal, string scoreLevel)
     {
         panelBack.gameObject.SetActive(true);
         panelWinner.gameObject.SetActive(true);
         panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGES_WINNER;
-        // Se pone el puntaje
-        string lastString = UserData.instance.Mod1States3_Strings[UserData.instance.Mod1States3_Strings.Count - 1];
-        int oldScore = UserData.instance.GetScore() - lastString.Length;
-        panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScore.ToString();
-        panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+" + lastString.Length;
 
+        // Se pone el puntaje        
+        panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScoreTotal;
+        panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+" + scoreLevel;
 
         // Se anima el panel
         panelWinner.DOScale(0f, 0f);
         panelWinnerScore.DOScale(0f, 0f);
-
         panelWinner.DOScale(doScaleSize, doScaleTime)
                 .OnComplete(() => panelWinner.DOScale(1f, doScaleTime)
                     .OnComplete(() => panelWinnerScore.DOScale(doScaleSize, doScaleTime)
                         .OnComplete(() => panelWinnerScore.DOScale(1f, doScaleTime))
                     )
                 );
-        //panelWinner.DOScale(0f, 0.01f)
-        //        .OnComplete(() => panelWinner.DOScale(doScaleSize, doScaleTime)
-        //            .OnComplete(() => panelWinner.DOScale(1f, doScaleTime)
-        //                .OnComplete(() => panelWinnerScore.DOScale(doScaleSize, doScaleTime)
-        //                    .OnComplete(() => panelWinnerScore.DOScale(1f, doScaleTime))
-        //                )
-        //            )
-        //         );
     }
 
     /// <summary>

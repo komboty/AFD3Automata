@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 /// <summary>
 /// Script que maneja las transiciones de un estado.
@@ -20,6 +23,11 @@ public class PathsManager : MonoBehaviour
     public GameObject uiUnionMode;
     // Interfaz de usuario que muestra botones del nivel.
     public GameObject uiButtons;
+    public GameObject uiButtonReturn;
+    // Recompensas.
+    public GameObject uiRewards;
+    // Nombre del estado
+    public TextMeshProUGUI stateName;
     // Estados que estan en el nivel.
     public StatesManager statesManager;
 
@@ -42,21 +50,34 @@ public class PathsManager : MonoBehaviour
         // Si se dio click y esta en modo union de dos Estados (crear una transicion)
         if (Input.GetMouseButtonDown(0) && isUnionMode)
         {
-            // Si el usuario dio click en un Estado
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHitInfo) && 
-                raycastHitInfo.transform.CompareTag(Constants.instance.TAG_TRANSITIONS))
-            {
+            //if (Physics.Raycast(ray, out raycastHitInfo) && 
+            //    raycastHitInfo.transform.CompareTag(Constants.instance.TAG_TRANSITIONS))
+            //{
+            if (Physics.Raycast(ray, out raycastHitInfo))
+            {                
+                Transform stateTarget = raycastHitInfo.transform;
+                // Si el usuario no dio click en un Estado, No hacer nada.
+                if (!stateTarget.CompareTag(Constants.instance.TAG_TRANSITIONS))
+                    return;
+
                 // Se crea la transicion.
                 CreatePhat();
                 DisableUnionMode();
+                
                 // Se finaliza la animacion de creacion del Esatdo.
-                raycastHitInfo.transform.GetComponent<OnMouseModelAnimation>().ExitAnimation();
+                stateTarget.GetComponent<OnMouseModelAnimation>().ExitAnimation();
+                
                 // Se cambia el color del simbolo que se selcciono en el canvas del Estado.
                 Button buttonClick = transform.GetChild(numButtonClick).GetComponent<Button>();
                 ColorBlock colorBlock = buttonClick.colors;
                 colorBlock.normalColor = uiTransitionColorClick;
                 buttonClick.colors = colorBlock;
+                
+                // Se almacena la transicion en el auxiliar.
+                string targetName = stateTarget.parent.GetComponentInChildren<PathsManager>().stateName.text;                
+                UserData.instance.SOLUTION_MOD2[stateName.text + "," + pathName] = targetName;
             }
                 
         }
@@ -104,6 +125,8 @@ public class PathsManager : MonoBehaviour
         statesManager.CanvasesSetActive(false); 
         // Se desactivan todos los botones
         uiButtons.SetActive(false);
+        uiButtonReturn.SetActive(false);
+        uiRewards.SetActive(false);
         // Se activa el canvas actual.
         gameObject.SetActive(true);
         // Se deshabilita el boton que no se dio click.
@@ -118,7 +141,7 @@ public class PathsManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Activa el modo union (creacion de una transicion)
+    /// Desactiva el modo union (creacion de una transicion)
     /// </summary>
     public void DisableUnionMode()
     {
@@ -127,6 +150,8 @@ public class PathsManager : MonoBehaviour
         statesManager.CanvasesSetActive(true);
         // Se activan todos los botones
         uiButtons.SetActive(true);
+        uiButtonReturn.SetActive(true);
+        uiRewards.SetActive(true);
         // Se activan todos los botones del canvas actual.
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);

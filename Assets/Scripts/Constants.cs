@@ -16,6 +16,7 @@ public class Constants : MonoBehaviour
     public string MESSAGES_NO_EMPTY_SYMBOLS = "Debes poner al\nmenos un Símbolos";
     public string MESSAGES_NO_EMPTY_TRANSITIONS = "Debes conectar\ntodas las Transiciones";
     public string MESSAGES_REPEATED_STRING = "Ya hiciste esa Cadena\nIntentá con otros Símbolos";
+    public string MESSAGES_REPEATED_AUTOMATA = "Ya hiciste este Automata\nIntentá con otras Transiciones";
 
     /// <summary>
     /// Nombres de Escenas.
@@ -42,6 +43,7 @@ public class Constants : MonoBehaviour
     /// Valores del juego
     /// </summary>
     public int GAME_MAX_SYMBOLS = 6;
+    public string GAME_MOD2_STRING = "";
 
     /// <summary>
     /// Singleton

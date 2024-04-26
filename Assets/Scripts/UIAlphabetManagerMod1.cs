@@ -8,9 +8,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// Script que controla el alfabeto en la interfaz de usuario.
+/// Script que controla el alfabeto en la interfaz de usuario. (Modo 1 de juego)
 /// </summary>
-public class UIAlphabetManager : MonoBehaviour, IPointerClickHandler
+public class UIAlphabetManagerMod1 : MonoBehaviour, IPointerClickHandler
 {
     // Contenedor donde se forma la cadena.
     public GameObject uiString;
@@ -18,22 +18,16 @@ public class UIAlphabetManager : MonoBehaviour, IPointerClickHandler
     public UIMessagesManager uiMessages;
     // Prefab de un symbolo de la interfaz de usuario.
     public GameObject prefabUISymbol;
-    public int maxNumSymbols;
     // Valores de animacion
     public float symbolDoScaleSize = 1.2f;
     public float symbolDoScaleTime = 0.2f;
 
-    private void Start()
-    {
-        maxNumSymbols = Constants.instance.GAME_MAX_SYMBOLS;
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         // Maximo de simbolos.        
-        if (uiString.transform.childCount >= maxNumSymbols)
+        if (uiString.transform.childCount >= Constants.instance.GAME_MAX_SYMBOLS)
         {
-            string message = String.Format(Constants.instance.MESSAGES_MAX_SYMBOLS, maxNumSymbols);
+            string message = String.Format(Constants.instance.MESSAGES_MAX_SYMBOLS, Constants.instance.GAME_MAX_SYMBOLS);
             uiMessages.ShowMessage(message);
             return;
         }

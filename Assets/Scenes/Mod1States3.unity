@@ -1952,6 +1952,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1675934753}
     - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
+      propertyPath: modManager
+      value: 
+      objectReference: {fileID: 657733766}
+    - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
       propertyPath: mod1Manager
       value: 
       objectReference: {fileID: 657733766}
@@ -2591,10 +2595,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2284688496698804239, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3083570882534068902, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2633,7 +2633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131661423193278655, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000045776367
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 4224065767759355161, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
       propertyPath: m_Name
@@ -2789,7 +2789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867631736983880559, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.99902505
       objectReference: {fileID: 0}
     - target: {fileID: 7867631736983880559, guid: fc1f72abb600570429b78027f2e6b21a, type: 3}
       propertyPath: m_Value
@@ -4218,6 +4218,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1675934753}
     - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
+      propertyPath: modManager
+      value: 
+      objectReference: {fileID: 657733766}
+    - target: {fileID: 6431597129059338011, guid: 68b9c1f0ca0bcf24780bab385acd7e17, type: 3}
       propertyPath: mod1Manager
       value: 
       objectReference: {fileID: 657733766}
@@ -5225,6 +5229,10 @@ PrefabInstance:
       propertyPath: uiWinner
       value: 
       objectReference: {fileID: 1675934753}
+    - target: {fileID: 9053591671369157203, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
+      propertyPath: modManager
+      value: 
+      objectReference: {fileID: 657733766}
     - target: {fileID: 9053591671369157203, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
       propertyPath: mod1Manager
       value: 

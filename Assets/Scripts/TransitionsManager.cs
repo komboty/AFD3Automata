@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ using UnityEngine.UI;
 public class TransitionsManager : MonoBehaviour
 {
     // Para conocer el tiempo de creacion de los simbolos.
-    public Mod1Manager mod1Manager;
+    public ModManager modManager;
     // Interfza del usuario para los simbolos.
     public Transform uiString;
     public Color uiSymbolColorDelete = new Color(0.5f, 0.5f, 0.5f, 0.5f);
@@ -60,11 +61,8 @@ public class TransitionsManager : MonoBehaviour
                     if (isStateFinal)
                     {
                         cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
-                        // Se almacena la solucion del usaurio.
-                        SaveSolution();
-                        // Se muestra mensaje de ganador.                        
-                        uIMessagesManager.ShowWinner();
-                        
+                        // Se almacena la solucion del usaurio y se muestra mensaje de ganador.
+                        modManager.SaveSolution();                        
                     }                        
                     // Si no es estado final, se muestra mensaje de perdedor.
                     else
@@ -97,25 +95,6 @@ public class TransitionsManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Almacena la solucion del usaurio.
-    /// </summary>
-    public void SaveSolution()
-    {
-        // Se guarda la cadena
-        string word = "";
-        foreach (Transform symbol in uiString)
-            word += symbol.name;
-        UserData.instance.Mod1States3_Strings.Add(word);
-
-        //foreach (string wString in UserData.instance.Mod1States3_Strings)
-        //    Debug.Log(wString);
-        //foreach (KeyValuePair<int, List<string>> mod in UserData.instance.Mod1States3_Strings)
-        //    foreach (string wString in mod.Value)
-        //        Debug.Log(mod.Key + " " + wString);
-
-    }
-
     private void OnTriggerExit(Collider other)
     {
         // Cada que sale el simbolo auxiliar de un esatdo,
@@ -136,7 +115,7 @@ public class TransitionsManager : MonoBehaviour
     {
         TransitionMove transitionMove = symbolE.parent.GetChild(1).GetComponent<TransitionMove>();
         //Debug.Log(nivelManager.symbolTimeout - (1f / transitionMove.speed));
-        yield return new WaitForSeconds(mod1Manager.symbolTimeout);// - (1f / transitionMove.speed));
+        yield return new WaitForSeconds(modManager.symbolTimeout);// - (1f / transitionMove.speed));
         symbolE.GetComponent<TransitionMove>().CopyValuesTo(transitionMove);        
     }
 }
