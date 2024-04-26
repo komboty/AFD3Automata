@@ -48,11 +48,13 @@ MonoBehaviour:
   MESSAGES_WINNER: 'Felicidades
 
     Ganaste!!!'
-  MESSAGES_LOSER: "Int\xE9ntalo otra vez"
+  MESSAGES_LOSER: "No t\xE9rmino en un\nEstado Final\nInt\xE9ntalo otra vez"
   MESSAGES_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
   MESSAGES_NO_EMPTY_TRANSITIONS: 'Debes conectar
 
     todas las Transiciones'
+  MESSAGES_REPEATED_STRING: "Ya hiciste esa Cadena\nIntent\xE1 con otros S\xEDmbolos"
+  NAME_SCENE_MAIN_MENU: MainMenu
   NAME_SCENE_MOD1_STATES3: Mod1States3
   NAME_SCENE_MOD2_STATES2: Mod2States2
   TAG_MAIN_CAMERA: MainCamera

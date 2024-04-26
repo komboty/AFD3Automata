@@ -22,6 +22,9 @@ public class Mod1Manager : MonoBehaviour
     public Transform uiString;
     // Botones.
     public Transform uiButtons;
+    public GameObject uiButtonReturn;
+    // Recompensas.
+    public GameObject uiRewards;
     // Prefabs del simbolo E.
     public GameObject symbolE;
     // Prefabs de cada simbolo del alfabeto del automata.
@@ -32,32 +35,46 @@ public class Mod1Manager : MonoBehaviour
     /// </summary>
     public virtual void StartAutomata()
     {
+        // Si el usaurio ya gano anteriormente con la misma solucion, No se inica el automata.
+        if (IsRepeatedSolution())
+            return;
+
+        // Si el usaurio no ha puesto ningun simbolo, No se inica el automata y se manda mensaje de error.
+        if (uiString.childCount == 0)
+        {
+            uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_SYMBOLS);
+            return;
+        }
+
         // Objeto auxiliar para saber donde inicia la cadena
         CreateSymbol(symbolE);
 
-        // Se crean los modelos 3d de cada simbolo.        
-        for (int i = 0; i < uiString.childCount; i++)
-        {
-            Transform uiSymbol = uiString.GetChild(i);
+        // Se crean los modelos 3d de cada simbolo.
+        //for (int i = 0; i < uiString.childCount; i++)
+        foreach (Transform uiSymbol in uiString)        
+        //{
+            //Transform uiSymbol = uiString.GetChild(i);
             // Se busca el modelo 3d del symbolo.
             foreach (GameObject symbolModel in symbolsModel)
-            {
+            //{
                 // Se crea el symbolo.
                 if (symbolModel.name.Equals(uiSymbol.name))
                     //lastSymbol = CreateSymbol(symbolModel);
                     CreateSymbol(symbolModel);
-            }
-        }
+            //}
+        //}
 
         // Se inicia el automata, si al menos existe un simbolo.
-        if (symbols.childCount > 1)
-        {
+        //if (symbols.childCount > 1)
+        //{
             // Se sigue a la cadena con la camara.
             CameraController.instance.followTransform = symbols.GetChild(0);
 
             // Se ocultan elementos de la interfaz de usaurio.
             uiString.parent.GetChild(2).gameObject.SetActive(false);
             uiButtons.GetChild(0).gameObject.SetActive(false);
+            uiButtonReturn.SetActive(false);
+            uiRewards.SetActive(false);
 
             // Se desabilita el drag de los symbolos de la interfaz de usuario.
             for (int i = 0; i < uiString.childCount; i++)
@@ -68,16 +85,35 @@ public class Mod1Manager : MonoBehaviour
 
             // Se incia el movimiento del los simbolos por el automata.
             StartCoroutine(nameof(MoveSymbols));
-        }
-        else
-        {
-            // Se limpia la cedena de simbolos.
-            for (int i = 0; i < symbols.childCount; i++)
-                Destroy(symbols.GetChild(i).gameObject);
-            // Se muestra mensaje de error.
-            uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_SYMBOLS);
-        }
+        //}
+        //else
+        //{
+        //    // Se limpia la cedena de simbolos.
+        //    for (int i = 0; i < symbols.childCount; i++)
+        //        Destroy(symbols.GetChild(i).gameObject);
+        //    // Se muestra mensaje de error.
+        //    uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_SYMBOLS);
+        //}
 
+    }
+
+    /// <summary>
+    /// Validad si la cadena ya la hizo el usuario anteriormente. Y muestra el mensaje.
+    /// </summary>
+    /// <returns>True si existe la cadena en los datos del usuario, de lo contrario False</returns>
+    public bool IsRepeatedSolution()
+    {
+        string word = "";
+        // Se obtiene la cadena hecha por el usaurio.
+        foreach (Transform symbol in uiString)
+            word += symbol.name;
+        
+        bool containsString = UserData.instance.ContainsString(word);
+        // Si ya hizo la cadena, se muestra mensaje de error.
+        if (containsString)
+            uiMessages.ShowMessage(Constants.instance.MESSAGES_REPEATED_STRING);
+        
+        return containsString;
     }
 
     /// <summary>

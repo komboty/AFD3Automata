@@ -12,13 +12,15 @@ public class Constants : MonoBehaviour
     /// </summary>
     public string MESSAGES_MAX_SYMBOLS = "Solo puedes poner\n{0} Símbolos";
     public string MESSAGES_WINNER = "Felicidades\nGanaste!!!";
-    public string MESSAGES_LOSER = "Inténtalo otra vez";
+    public string MESSAGES_LOSER = "No término en un\nEstado Final\nInténtalo otra vez";
     public string MESSAGES_NO_EMPTY_SYMBOLS = "Debes poner al\nmenos un Símbolos";
     public string MESSAGES_NO_EMPTY_TRANSITIONS = "Debes conectar\ntodas las Transiciones";
+    public string MESSAGES_REPEATED_STRING = "Ya hiciste esa Cadena\nIntentá con otros Símbolos";
 
     /// <summary>
     /// Nombres de Escenas.
     /// </summary>
+    public string NAME_SCENE_MAIN_MENU = "MainMenu";
     public string NAME_SCENE_MOD1_STATES3 = "Mod1States3";
     public string NAME_SCENE_MOD2_STATES2 = "Mod2States2";
 

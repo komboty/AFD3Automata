@@ -59,11 +59,12 @@ public class TransitionsManager : MonoBehaviour
                     // Si es estado final.
                     if (isStateFinal)
                     {
-                        // Se muestra mensaje de ganador.
                         cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
+                        // Se almacena la solucion del usaurio.
+                        SaveSolution();
+                        // Se muestra mensaje de ganador.                        
                         uIMessagesManager.ShowWinner();
-                        // Se da la recompensa al usuario por haber ganado.
-                        SetReward();
+                        
                     }                        
                     // Si no es estado final, se muestra mensaje de perdedor.
                     else
@@ -97,16 +98,16 @@ public class TransitionsManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Asigna recompensa al usuario.
+    /// Almacena la solucion del usaurio.
     /// </summary>
-    public void SetReward()
+    public void SaveSolution()
     {
         // Se guarda la cadena
         string word = "";
         foreach (Transform symbol in uiString)
             word += symbol.name;
         UserData.instance.Mod1States3_Strings.Add(word);
-                
+
         //foreach (string wString in UserData.instance.Mod1States3_Strings)
         //    Debug.Log(wString);
         //foreach (KeyValuePair<int, List<string>> mod in UserData.instance.Mod1States3_Strings)

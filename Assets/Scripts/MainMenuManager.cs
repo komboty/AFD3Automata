@@ -93,10 +93,13 @@ public class MainMenuManager : MonoBehaviour
     {
 
         uiMaxSymbols.gameObject.SetActive(true);
-        uiMaxSymbols.DOScale(0f, 0.01f)
-            .OnComplete(() => uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
-                .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime))
-            );
+        uiMaxSymbols.DOScale(0f, 0f);
+        uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
+                .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime));
+        //uiMaxSymbols.DOScale(0f, 0.01f)
+        //    .OnComplete(() => uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
+        //        .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime))
+        //    );
         // Se ocultan los otros niveles.
         Transform grid = uiLevels.GetChild(0);
         grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperCenter;

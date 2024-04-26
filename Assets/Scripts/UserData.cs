@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 /// <summary>
 /// Script que almacena los datos del usuario (puntaje).
@@ -32,5 +33,26 @@ public class UserData : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public int GetScore()
+    {
+        int scoreTotal = 0;
+        foreach (string word in Mod1States3_Strings)
+            scoreTotal += word.Length;
+        return scoreTotal;
+    }
+
+    public string GetStrings()
+    {
+        string words = "";
+        foreach (string word in Mod1States3_Strings)
+            words += word + "\n";
+        return words;
+    }
+
+    public bool ContainsString(string word)
+    {
+        return Mod1States3_Strings.Contains(word);
     }
 }

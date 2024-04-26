@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class UIMod1Rewards : MonoBehaviour
 {
@@ -16,26 +17,16 @@ public class UIMod1Rewards : MonoBehaviour
 
     void Start()
     {
-        int scoreTotal = 0;
-        TextStrings.text = "";
-        foreach (var word in UserData.instance.Mod1States3_Strings)
-        {
-            TextStrings.text += word + "\n";
-            scoreTotal += word.Length;
-        }
-        TextScore.text = scoreTotal.ToString();
+        TextStrings.text = UserData.instance.GetStrings();
+        TextScore.text = UserData.instance.GetScore().ToString();
     }
 
     public void OnShow()
     {
         if (isShowPanel)
-        {
             uiRewards.DOLocalMoveX(71f, uiRewardsTime);
-        }
         else
-        {
             uiRewards.DOLocalMoveX(-86f, uiRewardsTime);
-        }
 
         isShowPanel = !isShowPanel;
     }
