@@ -31,6 +31,7 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        //CameraController.isActiveMouse = false;
         // Se guarda la referencia del item que se esta moviendo.
         itemDragging = gameObject;
         // Se activa la basura.
@@ -85,6 +86,7 @@ public class UISymbolDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBegin
 
     public void FinishOrdering()
     {
+        //CameraController.isActiveMouse = true;
         // Se desactiva la basura.
         garbage.DOScale(0f, garbageDoScaleTime)
             .OnComplete(() => garbage.gameObject.SetActive(false));

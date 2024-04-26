@@ -8,18 +8,11 @@ using UnityEngine;
 public class UserData : MonoBehaviour
 {
     /// <summary>
-    /// Diccionarios que contiene los puntos del jugador. 
+    /// Puntos del jugador. 
     /// </summary>
-    // La llave contiene el numero maximo de simbolos y el valor las cadenas que hizo.
-    public Dictionary<int, List<string>> Mod1States3_Strings = new Dictionary<int, List<string>>()
-    {
-        { 1, new List<string>() },
-        { 2, new List<string>() },
-        { 3, new List<string>() },
-        { 4, new List<string>() },
-        { 5, new List<string>() },
-        { 6, new List<string>() },
-    };
+    //public List<string> Mod1States3_Strings = new List<string>();
+    public List<string> Mod1States3_Strings = new List<string>();
+
     // Falta que se definan los simbolos para cada nivel. Ej 1=(A,B), 2=(AA,BB,AB,BA), etc.
     // La primer llave contiene el numero maximo de simbolos,
     // la segunda llave contiene los simbolos y el valor las transiciones que hizo.

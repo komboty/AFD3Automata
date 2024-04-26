@@ -59,10 +59,13 @@ public class TransitionsManager : MonoBehaviour
                     // Si es estado final.
                     if (isStateFinal)
                     {
+                        // Se muestra mensaje de ganador.
                         cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
                         uIMessagesManager.ShowWinner();
+                        // Se da la recompensa al usuario por haber ganado.
+                        SetReward();
                     }                        
-                    // Si no es estado final
+                    // Si no es estado final, se muestra mensaje de perdedor.
                     else
                         uIMessagesManager.ShowLoser();
 
@@ -91,6 +94,25 @@ public class TransitionsManager : MonoBehaviour
                 symbols.GetChild(i).GetComponent<TransitionMove>()
                     .AddSplineContainer(splineContainer);
         }
+    }
+
+    /// <summary>
+    /// Asigna recompensa al usuario.
+    /// </summary>
+    public void SetReward()
+    {
+        // Se guarda la cadena
+        string word = "";
+        foreach (Transform symbol in uiString)
+            word += symbol.name;
+        UserData.instance.Mod1States3_Strings.Add(word);
+                
+        //foreach (string wString in UserData.instance.Mod1States3_Strings)
+        //    Debug.Log(wString);
+        //foreach (KeyValuePair<int, List<string>> mod in UserData.instance.Mod1States3_Strings)
+        //    foreach (string wString in mod.Value)
+        //        Debug.Log(mod.Key + " " + wString);
+
     }
 
     private void OnTriggerExit(Collider other)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6698009214573548599}
   - component: {fileID: 2088308720884026373}
   - component: {fileID: -2058817380790909006}
+  - component: {fileID: -6426064487103668043}
   m_Layer: 5
   m_Name: UI Symbol
   m_TagString: Untagged
@@ -140,3 +141,15 @@ MonoBehaviour:
   doScaleSizeEnter: 1.1
   doScaleSizeExit: 1
   doScaleTime: 0.2
+--- !u!114 &-6426064487103668043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919222238317652593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d68a84db8282e41959a40b628c2dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

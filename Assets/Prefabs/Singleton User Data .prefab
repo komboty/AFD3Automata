@@ -44,4 +44,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16165390b3430e49ac0622808681404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: 
+  Mod1States3_Strings:
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBBBB
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBB
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBB
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBBAA
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBB
+  - A
+  - B
+  - BB
+  - AA
+  - ABB
+  - BBBB

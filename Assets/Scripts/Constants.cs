@@ -39,7 +39,7 @@ public class Constants : MonoBehaviour
     /// <summary>
     /// Valores del juego
     /// </summary>
-    public int GAME_MAX_SYMBOLS = 0;
+    public int GAME_MAX_SYMBOLS = 6;
 
     /// <summary>
     /// Singleton

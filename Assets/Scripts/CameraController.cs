@@ -8,8 +8,7 @@ using UnityEngine.UIElements;
 /// </summary>
 public class CameraController : MonoBehaviour
 {
-    // Constantes del juego.
-    //public Constants constants;
+    public static bool isActiveMouse = true;
     // Camara.
     public static CameraController instance;
     // Seguimiento de un objeto
@@ -56,7 +55,7 @@ public class CameraController : MonoBehaviour
         else
         {
             // Si NO se esta moviendo un simbolo de la interfaz de usuario.
-            if (UISymbolDrag.itemDragging == null)
+            if (isActiveMouse)
             {
                // Movimiento de la pantalla con el mouse.
                HandleMouseInput();
