@@ -41,7 +41,7 @@ public class ModManager: MonoBehaviour
         // Si el usaurio no ha puesto ningun simbolo, No se inica el automata y se manda mensaje de error.
         if (uiString.childCount == 0)
         {
-            uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_SYMBOLS);
+            uiMessages.ShowMessage(Constants.instance.MESSAGE_NO_EMPTY_SYMBOLS);
             return;
         }
 

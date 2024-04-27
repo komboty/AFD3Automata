@@ -51,11 +51,11 @@ public class UIMessagesManager : MonoBehaviour
     /// <summary>
     /// Muestra panel en pantalla con un mensajes de ganador.
     /// </summary>
-    public void ShowWinner(string oldScoreTotal, string scoreLevel)
+    public void ShowWinner(string message,string oldScoreTotal, string scoreLevel)
     {
         panelBack.gameObject.SetActive(true);
         panelWinner.gameObject.SetActive(true);
-        panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGES_WINNER;
+        panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
 
         // Se pone el puntaje        
         panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScoreTotal;
@@ -79,7 +79,7 @@ public class UIMessagesManager : MonoBehaviour
     {
         panelBack.gameObject.SetActive(true);
         panelLoser.gameObject.SetActive(true);
-        panelLoser.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGES_LOSER;
+        panelLoser.GetChild(0).GetComponent<TextMeshProUGUI>().text = Constants.instance.MESSAGE_LOSER;
         panelLoser.DOShakeScale(doScaleTime);
     }
 }

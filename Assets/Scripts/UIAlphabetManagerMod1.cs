@@ -27,7 +27,7 @@ public class UIAlphabetManagerMod1 : MonoBehaviour, IPointerClickHandler
         // Maximo de simbolos.        
         if (uiString.transform.childCount >= Constants.instance.GAME_MAX_SYMBOLS)
         {
-            string message = String.Format(Constants.instance.MESSAGES_MAX_SYMBOLS, Constants.instance.GAME_MAX_SYMBOLS);
+            string message = String.Format(Constants.instance.MESSAGE_MAX_SYMBOLS, Constants.instance.GAME_MAX_SYMBOLS);
             uiMessages.ShowMessage(message);
             return;
         }

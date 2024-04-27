@@ -27,7 +27,7 @@ public class Mod1Manager : ModManager
         bool containsString = UserData.instance.HasMod1Solution(levelName, word);
         // Si ya hizo la cadena, se muestra mensaje de error.
         if (containsString)
-            uiMessages.ShowMessage(Constants.instance.MESSAGES_REPEATED_STRING);
+            uiMessages.ShowMessage(Constants.instance.MESSAGE_REPEATED_STRING);
         
         return containsString;
     }
@@ -42,7 +42,8 @@ public class Mod1Manager : ModManager
         // Se muestra mensaje.
         string lastString = UserData.instance.GetLastSolutionMod1(levelName);
         int oldScore = UserData.instance.GetMod1Score(levelName) - lastString.Length;
-        uiMessages.ShowWinner(oldScore.ToString(), lastString.Length.ToString());
+        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD1, 
+            oldScore.ToString(), lastString.Length.ToString());
     }
 
     /// <summary>

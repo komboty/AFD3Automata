@@ -126,7 +126,7 @@ public class PathsManager : MonoBehaviour
         // Se desactivan todos los botones
         uiButtons.SetActive(false);
         uiButtonReturn.SetActive(false);
-        uiRewards.SetActive(false);
+        //uiRewards.SetActive(false);
         // Se activa el canvas actual.
         gameObject.SetActive(true);
         // Se deshabilita el boton que no se dio click.
@@ -151,7 +151,7 @@ public class PathsManager : MonoBehaviour
         // Se activan todos los botones
         uiButtons.SetActive(true);
         uiButtonReturn.SetActive(true);
-        uiRewards.SetActive(true);
+        //uiRewards.SetActive(true);
         // Se activan todos los botones del canvas actual.
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);

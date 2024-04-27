@@ -30,10 +30,17 @@ public class LoadScenes : MonoBehaviour
     public void LoadMainMenu() => Restart(Constants.instance.NAME_SCENE_MAIN_MENU);
 
 
-    // Inicia la escena con el Modo 1 con 3 Estados.
-    public void StartMod1State3(int maxSymbols)
+    //// Inicia la escena con el Modo 1 con 3 Estados.
+    //public void StartMod1State3(int maxSymbols)
+    //{
+    //    Constants.instance.GAME_MAX_SYMBOLS = maxSymbols;
+    //    LoadMod1State3();
+    //}
+
+    // Inicia la escena con el Modo 2 con 2 Estados.
+    public void StartMod2State2(string word)
     {
-        Constants.instance.GAME_MAX_SYMBOLS = maxSymbols;
-        LoadMod1State3();
+        Constants.instance.GAME_MOD2_STRING = word;
+        LoadMod2State2();
     }
 }

@@ -115,7 +115,7 @@ public class UserData : MonoBehaviour
     {
         string solutions = "";
         foreach (string transitions in Mod2Solutions[levelName][word])
-            solutions += transitions + "\n------------\n";
+            solutions += transitions + "\n-----------\n";
         return solutions;
     }
 
@@ -143,8 +143,14 @@ public class UserData : MonoBehaviour
     public string GetSolutionMod2()
     {
         string automata = "";
-        foreach (KeyValuePair<string, string> transition in UserData.instance.SOLUTION_MOD2)
+        //foreach (KeyValuePair<string, string> transition in SOLUTION_MOD2)
+        //    automata += "(" + transition.Key + ")=" + transition.Value + " ";
+        //Debug.Log(automata);
+
+        //automata = "";
+        foreach (KeyValuePair<string, string> transition in SOLUTION_MOD2.OrderBy(t => t.Key))
             automata += "(" + transition.Key + ")=" + transition.Value + " ";
+        //Debug.Log(automata);
         return automata;
     }
 }

@@ -21,13 +21,9 @@ public class LookAt : MonoBehaviour
 
     void Update()
     {
-        // Si el objetivo esta rotado.
-        if (isRotated)
-            transform.LookAt(target.transform.position);
-        else
-            transform.forward = target.transform.forward; 
-
-        //Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
-        //transform.DORotateQuaternion(targetRotation, duration);
+        Vector3 relativePos = isRotated ? target.transform.position - transform.position : 
+            transform.position - target.transform.position;
+        Quaternion toRotation = Quaternion.LookRotation(relativePos);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 2f * Time.deltaTime);
     }
 }

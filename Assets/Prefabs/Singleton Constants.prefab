@@ -45,15 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MESSAGES_MAX_SYMBOLS: "Solo puedes poner\n{0} S\xEDmbolos"
-  MESSAGES_WINNER: 'Felicidades
-
-    Ganaste!!!'
+  MESSAGES_WINNER: "Ganaste!!!\nIntent\xE1 ganar con otra Cadena"
   MESSAGES_LOSER: "No t\xE9rmino en un\nEstado Final\nInt\xE9ntalo otra vez"
   MESSAGES_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
   MESSAGES_NO_EMPTY_TRANSITIONS: 'Debes conectar
 
     todas las Transiciones'
   MESSAGES_REPEATED_STRING: "Ya hiciste esa Cadena\nIntent\xE1 con otros S\xEDmbolos"
+  MESSAGES_REPEATED_AUTOMATA: "Ya hiciste este Automata\nIntent\xE1 con otras Transiciones"
   NAME_SCENE_MAIN_MENU: MainMenu
   NAME_SCENE_MOD1_STATES3: Mod1States3
   NAME_SCENE_MOD2_STATES2: Mod2States2
@@ -64,3 +63,4 @@ MonoBehaviour:
   SYMBOL_A_NAME: A
   SYMBOL_B_NAME: B
   GAME_MAX_SYMBOLS: 6
+  GAME_MOD2_STRING: 

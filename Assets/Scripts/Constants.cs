@@ -10,13 +10,14 @@ public class Constants : MonoBehaviour
     /// <summary>
     /// Mensajes.
     /// </summary>
-    public string MESSAGES_MAX_SYMBOLS = "Solo puedes poner\n{0} Símbolos";
-    public string MESSAGES_WINNER = "Felicidades\nGanaste!!!";
-    public string MESSAGES_LOSER = "No término en un\nEstado Final\nInténtalo otra vez";
-    public string MESSAGES_NO_EMPTY_SYMBOLS = "Debes poner al\nmenos un Símbolos";
-    public string MESSAGES_NO_EMPTY_TRANSITIONS = "Debes conectar\ntodas las Transiciones";
-    public string MESSAGES_REPEATED_STRING = "Ya hiciste esa Cadena\nIntentá con otros Símbolos";
-    public string MESSAGES_REPEATED_AUTOMATA = "Ya hiciste este Automata\nIntentá con otras Transiciones";
+    public string MESSAGE_MAX_SYMBOLS = "Solo puedes poner\n{0} Símbolos";
+    public string MESSAGE_WINNER_MOD1 = "Ganaste!!!\nIntentá ganar con otra Cadena";
+    public string MESSAGE_WINNER_MOD2 = "Ganaste!!!\nIntentá ganar con otro Autómata";
+    public string MESSAGE_LOSER = "No término en un\nEstado Final\nInténtalo otra vez";
+    public string MESSAGE_NO_EMPTY_SYMBOLS = "Debes poner al\nmenos un Símbolos";
+    public string MESSAGE_NO_EMPTY_TRANSITIONS = "Debes conectar\ntodas las Transiciones";
+    public string MESSAGE_REPEATED_STRING = "Ya hiciste esa Cadena\nIntentá con otros Símbolos";
+    public string MESSAGE_REPEATED_AUTOMATA = "Ya hiciste este Autómata\nIntentá con otras Transiciones";
 
     /// <summary>
     /// Nombres de Escenas.

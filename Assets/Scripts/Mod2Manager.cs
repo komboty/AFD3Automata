@@ -17,7 +17,7 @@ public class Mod2Manager : ModManager
             if (!transition.transform.childCount.Equals(symbolsModel.Count))
             {
                 // Se muestra mensaje de error.
-                uiMessages.ShowMessage(Constants.instance.MESSAGES_NO_EMPTY_TRANSITIONS);
+                uiMessages.ShowMessage(Constants.instance.MESSAGE_NO_EMPTY_TRANSITIONS);
                 return;
             }  
         }
@@ -41,7 +41,7 @@ public class Mod2Manager : ModManager
             Constants.instance.GAME_MOD2_STRING, UserData.instance.GetSolutionMod2());
         // Si ya se hizo el automata, se muestra mensaje de error.
         if (containsAutomata)
-            uiMessages.ShowMessage(Constants.instance.MESSAGES_REPEATED_AUTOMATA);
+            uiMessages.ShowMessage(Constants.instance.MESSAGE_REPEATED_AUTOMATA);
 
         return containsAutomata;
     }
@@ -56,6 +56,7 @@ public class Mod2Manager : ModManager
         // Se muestra mensaje.
         int newScore = 10 * Constants.instance.GAME_MOD2_STRING.Length;
         int oldScore = UserData.instance.GetMod2Score(levelName, Constants.instance.GAME_MOD2_STRING) - newScore;
-        uiMessages.ShowWinner(oldScore.ToString(), newScore.ToString());
+        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD2, 
+            oldScore.ToString(), newScore.ToString());
     }
 }
