@@ -557,6 +557,8 @@ MonoBehaviour:
   panelLoser: {fileID: 5563750409958649736}
   doScaleSize: 1.3
   doScaleTime: 0.35
+  doScoreSize: 1.1
+  doScoreTime: 0.3
 --- !u!1 &2284688496698804239
 GameObject:
   m_ObjectHideFlags: 0

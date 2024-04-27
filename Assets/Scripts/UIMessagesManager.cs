@@ -22,7 +22,14 @@ public class UIMessagesManager : MonoBehaviour
     public Transform panelLoser;
     // Valores de animacion.
     public float doScaleSize = 1.3f;
-    public float doScaleTime = 0.35f;    
+    public float doScaleTime = 0.35f;
+    public float doScoreSize = 1.1f;
+    public float doScoreTime = 0.3f;
+
+    // Auxiliares Score
+    private int oldScoreTotalAux;
+    private int levelScoreAux;
+    private int animationSumAux;
 
     /// <summary>
     /// Muestra panel en pantalla con un mensajes de texto.
@@ -51,25 +58,51 @@ public class UIMessagesManager : MonoBehaviour
     /// <summary>
     /// Muestra panel en pantalla con un mensajes de ganador.
     /// </summary>
-    public void ShowWinner(string message,string oldScoreTotal, string scoreLevel)
+    /// <param name="message">Mensaje de ganador</param>
+    /// <param name="oldScoreTotal">Puntaje antes de ganar</param>
+    /// <param name="levelScore">Puntaje de la partida actual</param>
+    /// <param name="animationSum">Saltos del puntaje para la animacion</param>
+    public void ShowWinner(string message,int oldScoreTotal, int levelScore, int animationSum)
     {
         panelBack.gameObject.SetActive(true);
         panelWinner.gameObject.SetActive(true);
         panelWinner.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
 
         // Se pone el puntaje        
-        panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScoreTotal;
-        panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+" + scoreLevel;
+        levelScoreAux = levelScore;
+        oldScoreTotalAux = oldScoreTotal;
+        animationSumAux = animationSum;
+        panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScoreTotal.ToString();
+        panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = "+" + levelScore;
 
         // Se anima el panel
         panelWinner.DOScale(0f, 0f);
-        panelWinnerScore.DOScale(0f, 0f);
         panelWinner.DOScale(doScaleSize, doScaleTime)
-                .OnComplete(() => panelWinner.DOScale(1f, doScaleTime)
-                    .OnComplete(() => panelWinnerScore.DOScale(doScaleSize, doScaleTime)
-                        .OnComplete(() => panelWinnerScore.DOScale(1f, doScaleTime))
-                    )
-                );
+                .OnComplete(() => panelWinner.DOScale(1f, doScaleTime));
+        StartCoroutine(nameof(AnimationScore));
+    }
+
+    /// <summary>
+    /// Anima el panel del puntaje
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator AnimationScore()
+    {
+        yield return new WaitForSeconds(doScaleTime * 2);
+
+        string oldScoreText;
+        string levelScoreText;
+        for (int i = 0; i < levelScoreAux / animationSumAux; i++)
+        {
+            oldScoreText = (oldScoreTotalAux + ((i + 1) * animationSumAux)).ToString();
+            levelScoreText = "+" + (levelScoreAux - ((i + 1) * animationSumAux));
+            panelWinnerScore.GetChild(1).GetComponent<TextMeshProUGUI>().text = oldScoreText;
+            panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = levelScoreText;
+            panelWinnerScore.DOPunchScale(new Vector3(doScoreSize, doScoreSize, 0f), doScoreTime, 0);
+            yield return new WaitForSeconds(doScoreTime);
+        }
+
+        panelWinnerScore.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
     }
 
     /// <summary>

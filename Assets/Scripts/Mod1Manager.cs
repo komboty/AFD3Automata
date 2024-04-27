@@ -40,10 +40,9 @@ public class Mod1Manager : ModManager
         UserData.instance.Mod1Solutions[levelName].Add(word);
 
         // Se muestra mensaje.
-        string lastString = UserData.instance.GetLastSolutionMod1(levelName);
-        int oldScore = UserData.instance.GetMod1Score(levelName) - lastString.Length;
-        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD1, 
-            oldScore.ToString(), lastString.Length.ToString());
+        int levelScore = UserData.instance.GetLastSolutionMod1(levelName).Length;
+        int oldScore = UserData.instance.GetMod1Score(levelName) - levelScore;
+        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD1, oldScore, levelScore, 1);
     }
 
     /// <summary>

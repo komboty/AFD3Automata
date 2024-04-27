@@ -96,14 +96,8 @@ public class UserData : MonoBehaviour
     /// <param name="levelName">Nombre del nivel</param>
     /// <param name="word">Cadena del nivel</param>
     /// <returns>Puntaje total</returns>
-    public int GetMod2Score(string levelName, string word)
-    {
-        //int scoreTotal = 0;
-        //foreach (string transitions in Mod2Solutions[levelName][word])
-        //    scoreTotal += transitions.Length;
-        //return scoreTotal;
-        return 10 * word.Length * Mod2Solutions[levelName][word].Count();
-    }
+    public int GetMod2Score(string levelName, string word) => Constants.instance.GAME_MOD2_SCORE_MULTIPLER * 
+        word.Length * Mod2Solutions[levelName][word].Count();
 
     /// <summary>
     /// Regresa todas las soluciones hechas por el usuario de un nivel. (Modo 2 de juego)
@@ -143,14 +137,8 @@ public class UserData : MonoBehaviour
     public string GetSolutionMod2()
     {
         string automata = "";
-        //foreach (KeyValuePair<string, string> transition in SOLUTION_MOD2)
-        //    automata += "(" + transition.Key + ")=" + transition.Value + " ";
-        //Debug.Log(automata);
-
-        //automata = "";
         foreach (KeyValuePair<string, string> transition in SOLUTION_MOD2.OrderBy(t => t.Key))
             automata += "(" + transition.Key + ")=" + transition.Value + " ";
-        //Debug.Log(automata);
         return automata;
     }
 }

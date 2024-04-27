@@ -45,6 +45,7 @@ public class Constants : MonoBehaviour
     /// </summary>
     public int GAME_MAX_SYMBOLS = 6;
     public string GAME_MOD2_STRING = "";
+    public int GAME_MOD2_SCORE_MULTIPLER = 10;
 
     /// <summary>
     /// Singleton

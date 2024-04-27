@@ -54,9 +54,9 @@ public class Mod2Manager : ModManager
             .Add(UserData.instance.GetSolutionMod2());
 
         // Se muestra mensaje.
-        int newScore = 10 * Constants.instance.GAME_MOD2_STRING.Length;
-        int oldScore = UserData.instance.GetMod2Score(levelName, Constants.instance.GAME_MOD2_STRING) - newScore;
-        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD2, 
-            oldScore.ToString(), newScore.ToString());
+        int levelScore = Constants.instance.GAME_MOD2_SCORE_MULTIPLER * Constants.instance.GAME_MOD2_STRING.Length;
+        int oldScore = UserData.instance.GetMod2Score(levelName, Constants.instance.GAME_MOD2_STRING) - levelScore;
+        uiMessages.ShowWinner(Constants.instance.MESSAGE_WINNER_MOD2, oldScore, levelScore, 
+            Constants.instance.GAME_MOD2_SCORE_MULTIPLER);
     }
 }
