@@ -44,18 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bac7edaf5dc174fb868e761753729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MESSAGES_MAX_SYMBOLS: "Solo puedes poner\n{0} S\xEDmbolos"
-  MESSAGES_WINNER: "Ganaste!!!\nIntent\xE1 ganar con otra Cadena"
-  MESSAGES_LOSER: "No t\xE9rmino en un\nEstado Final\nInt\xE9ntalo otra vez"
-  MESSAGES_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
-  MESSAGES_NO_EMPTY_TRANSITIONS: 'Debes conectar
+  MESSAGE_MAX_SYMBOLS: "Solo puedes poner\n{0} S\xEDmbolos"
+  MESSAGE_WINNER_MOD1: "Ganaste!!!\nIntent\xE1 ganar con otra Cadena"
+  MESSAGE_WINNER_MOD2: "Ganaste!!!\nIntent\xE1 ganar con otro Aut\xF3mata"
+  MESSAGE_LOSER: "No t\xE9rmino en un\nEstado Final\n\nInt\xE9ntalo otra vez"
+  MESSAGE_NO_EMPTY_SYMBOLS: "Debes poner al\nmenos un S\xEDmbolos"
+  MESSAGE_NO_EMPTY_TRANSITIONS: 'Debes conectar
 
     todas las Transiciones'
-  MESSAGES_REPEATED_STRING: "Ya hiciste esa Cadena\nIntent\xE1 con otros S\xEDmbolos"
-  MESSAGES_REPEATED_AUTOMATA: "Ya hiciste este Automata\nIntent\xE1 con otras Transiciones"
+  MESSAGE_REPEATED_STRING: "Cadena repetida\n\nIntent\xE1 con otros S\xEDmbolos"
+  MESSAGE_REPEATED_AUTOMATA: "Aut\xF3mata repetido\n\nIntent\xE1 con otras Transiciones"
   NAME_SCENE_MAIN_MENU: MainMenu
   NAME_SCENE_MOD1_STATES3: Mod1States3
+  NAME_SCENE_MOD1_STATES2: Mod1States2
   NAME_SCENE_MOD2_STATES2: Mod2States2
+  NAME_SCENE_MOD2_STATES2_2: Mod2States2_2
   TAG_MAIN_CAMERA: MainCamera
   TAG_TRANSITIONS: Transitions
   TAG_PHATS_CANVAS: PathsCanvas
@@ -64,3 +67,4 @@ MonoBehaviour:
   SYMBOL_B_NAME: B
   GAME_MAX_SYMBOLS: 6
   GAME_MOD2_STRING: 
+  GAME_MOD2_SCORE_MULTIPLER: 10

@@ -97,6 +97,12 @@ public class UserData : MonoBehaviour
     /// <returns>True si la solucion ya se hizo en el nivel, de lo contrario False</returns>
     public bool HasMod1Solution(string levelName, string solution) => Mod1Solutions[levelName].Contains(solution);
 
+    /// <summary>
+    /// Regresa el numero total de soluciones de un nivel. (Modo 1 de juego)
+    /// </summary>
+    /// <param name="levelName">Nombre del nivel</param>
+    public int GetMod1CountSolutions(string levelName) => Mod1Solutions[levelName].Count;
+
 
     /// <summary>
     /// Regresa el puntaje total de un nivel. (Modo 2 de juego)
@@ -149,4 +155,11 @@ public class UserData : MonoBehaviour
             automata += "(" + transition.Key + ")=" + transition.Value + " ";
         return automata;
     }
+
+    /// <summary>
+    /// Regresa el numero total de soluciones de un nivel. (Modo 2 de juego)
+    /// </summary>
+    /// <param name="levelName">Nombre del nivel</param>
+    /// <param name="word">Cadena del nivel</param>
+    public int GetMod2CountSolutions(string levelName, string word) => Mod2Solutions[levelName][word].Count;
 }
