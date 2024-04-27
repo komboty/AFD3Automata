@@ -12,6 +12,7 @@ public class UserData : MonoBehaviour
     // La primer llave contiene el nombre del nivel y el valor las cadenas que hizo el usuario.
     public Dictionary<string, List<string>> Mod1Solutions = new()
     {
+        {"Mod1States2", new List<string>()},
         {"Mod1States3", new List<string>()}
     };
 

@@ -24,6 +24,7 @@ public class Constants : MonoBehaviour
     /// </summary>
     public string NAME_SCENE_MAIN_MENU = "MainMenu";
     public string NAME_SCENE_MOD1_STATES3 = "Mod1States3";
+    public string NAME_SCENE_MOD1_STATES2 = "Mod1States2";
     public string NAME_SCENE_MOD2_STATES2 = "Mod2States2";
 
     /// <summary>
