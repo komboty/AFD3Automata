@@ -16,7 +16,7 @@ public class UserData : MonoBehaviour
         {"Mod1States3", new List<string>()}
     };
 
-    // Falta que se definan los simbolos para cada nivel. Ej 1=(A,B), 2=(AA,BB,AB,BA), etc.
+    
     // La primer llave contiene el nombre del nivel, la segunda llave contiene una cadena
     // y el valor las transiciones que hizo el usaurio.
     public Dictionary<string, Dictionary<string, List<string>>> Mod2Solutions = new()
@@ -27,11 +27,18 @@ public class UserData : MonoBehaviour
                 {"AA", new List<string>()},{"BB", new List<string>()},{"AB", new List<string>()},{"BA", new List<string>()},
                 {"AAA", new List<string>()},{"BBB", new List<string>()},{"AAB", new List<string>()},{"ABB", new List<string>()},{"BBA", new List<string>()},{"BAA", new List<string>()},{"BAB", new List<string>()},{"ABA", new List<string>()},
             }            
+        },
+        {"Mod2States2_2", new Dictionary<string, List<string>>()
+            {
+                {"A", new List<string>()},{"B", new List<string>()},
+                {"AA", new List<string>()},{"BB", new List<string>()},{"AB", new List<string>()},{"BA", new List<string>()},
+                {"AAA", new List<string>()},{"BBB", new List<string>()},{"AAB", new List<string>()},{"ABB", new List<string>()},{"BBA", new List<string>()},{"BAA", new List<string>()},{"BAB", new List<string>()},{"ABA", new List<string>()},
+            }
         }
     };
 
     // Auxiliar para almacenar la solucion del modo 2 de juego.
-    public Dictionary<string, string> SOLUTION_MOD2;
+    public Dictionary<string, string> SOLUTION_MOD2;    
 
     /// <summary>
     /// Singleton

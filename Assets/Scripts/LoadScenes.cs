@@ -29,6 +29,9 @@ public class LoadScenes : MonoBehaviour
     // Recarga la escena con el Modo 2 con 2 Estados.
     public void LoadMod2State2() => Restart(Constants.instance.NAME_SCENE_MOD2_STATES2);
 
+    // Recarga la escena con el Modo 2 con 2 Estados Version 2.
+    public void LoadMod2State2_2() => Restart(Constants.instance.NAME_SCENE_MOD2_STATES2_2);
+
     // Recarga la escena con el Menu principal.
     public void LoadMainMenu() => Restart(Constants.instance.NAME_SCENE_MAIN_MENU);
 

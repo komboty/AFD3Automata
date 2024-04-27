@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mod2States2.unity
     guid: 6b93a808eeb01ea478ea04eb5ff74f4f
+  - enabled: 1
+    path: Assets/Scenes/Mod1States2.unity
+    guid: 18f7d71b51bffe54aaa8e1d48b0e0187
+  - enabled: 1
+    path: Assets/Scenes/Mod2States2_2.unity
+    guid: 9811d1aa2b71e3c408c2aa110bc9314a
   m_configObjects: {}
