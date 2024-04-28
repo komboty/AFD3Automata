@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Splines;
 
 /// <summary>
 /// Script que maneja el Modo 2 del juego (Dada una cadena construir un Automata que pueda la valide).
@@ -13,13 +14,26 @@ public class Mod2Manager : ModManager
     {
         // Se validad que todas las transiciones esten creadas.
         foreach (GameObject transition in statesManager.transitions)
-        {            
-            if (!transition.transform.childCount.Equals(symbolsModel.Count))
+        {
+            for (int i = 0; i < transition.transform.childCount; i++)
             {
-                // Se muestra mensaje de error.
-                uiMessages.ShowMessage(Constants.instance.MESSAGE_NO_EMPTY_TRANSITIONS);
-                return;
-            }  
+                SplineContainer splineContainer = transition.transform.GetChild(i).GetChild(0)
+                    .GetComponent<SplineContainer>();
+                //Debug.Log(transition.transform.parent.name +" "+ splineContainer.Spline.Count);
+                if (splineContainer.Spline.Count < 4)
+                {
+                    // Se muestra mensaje de error.
+                    uiMessages.ShowMessage(Constants.instance.MESSAGE_NO_EMPTY_TRANSITIONS);
+                    return;
+                }
+            }
+
+            //if (!transition.transform.childCount.Equals(symbolsModel.Count))
+            //{
+            //    // Se muestra mensaje de error.
+            //    uiMessages.ShowMessage(Constants.instance.MESSAGE_NO_EMPTY_TRANSITIONS);
+            //    return;
+            //}  
         }
 
         // Si el usaurio ya hizo el automata anteriormente, se manda error.

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23678811, g: 0.097444706, b: 0.10118891, a: 1}
+  m_IndirectSpecularColor: {r: 0.2366312, g: 0.09743937, b: 0.10117148, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -520,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 496189906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1787, y: -0.9, z: 1.185}
+  m_LocalPosition: {x: 3.1787, y: -0.6, z: 1.185}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1433,6 +1433,26 @@ PrefabInstance:
       propertyPath: m_text
       value: q0
       objectReference: {fileID: 0}
+    - target: {fileID: 3657346689903247782, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: uiButtons
+      value: 
+      objectReference: {fileID: 8820489748931582321}
+    - target: {fileID: 3657346689903247782, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: uiRewards
+      value: 
+      objectReference: {fileID: 1854151375}
+    - target: {fileID: 3657346689903247782, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: uiUnionMode
+      value: 
+      objectReference: {fileID: 1076508259}
+    - target: {fileID: 3657346689903247782, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: statesManager
+      value: 
+      objectReference: {fileID: 997744620}
+    - target: {fileID: 3657346689903247782, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
+      propertyPath: uiButtonReturn
+      value: 
+      objectReference: {fileID: 972922318}
     - target: {fileID: 4481436701242153016, guid: d8259bfa54896aa44a8b9e41274d8200, type: 3}
       propertyPath: model
       value: 
@@ -2789,6 +2809,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 2876251473070032730, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
+      propertyPath: uiButtons
+      value: 
+      objectReference: {fileID: 8820489748931582321}
+    - target: {fileID: 2876251473070032730, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
+      propertyPath: uiRewards
+      value: 
+      objectReference: {fileID: 1854151375}
+    - target: {fileID: 2876251473070032730, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
+      propertyPath: uiUnionMode
+      value: 
+      objectReference: {fileID: 1076508259}
+    - target: {fileID: 2876251473070032730, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
+      propertyPath: statesManager
+      value: 
+      objectReference: {fileID: 997744620}
+    - target: {fileID: 2876251473070032730, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
+      propertyPath: uiButtonReturn
+      value: 
+      objectReference: {fileID: 972922318}
     - target: {fileID: 3106002673036762820, guid: a18dc80e71f42c64baafe28364a0fc27, type: 3}
       propertyPath: model
       value: 
