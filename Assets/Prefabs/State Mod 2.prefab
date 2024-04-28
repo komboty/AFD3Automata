@@ -1202,6 +1202,8 @@ MonoBehaviour:
   uiString: {fileID: 0}
   uiSymbolColorDelete: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   uIMessagesManager: {fileID: 0}
+  destructAnim: {fileID: 6861301936119156076, guid: 0858702b9ecdc1c4ab545f6e32ea46e6, type: 3}
+  destructAnimTime: 3.2
   isStateInitial: 0
   isStateFinal: 0
 --- !u!114 &4481436701242153016

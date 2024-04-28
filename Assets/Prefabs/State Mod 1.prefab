@@ -446,11 +446,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5098f2da39aeca34ab9f1a816253d59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constants: {fileID: 9121958973743777056, guid: f934b6956087b63418d1466e59ce0ef3, type: 3}
-  mod1Manager: {fileID: 0}
+  modManager: {fileID: 0}
   uiString: {fileID: 0}
   uiSymbolColorDelete: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   uIMessagesManager: {fileID: 0}
+  destructAnim: {fileID: 6861301936119156076, guid: 0858702b9ecdc1c4ab545f6e32ea46e6, type: 3}
+  destructAnimTime: 3.2
   isStateInitial: 0
   isStateFinal: 0
 --- !u!1 &3080714375809625291

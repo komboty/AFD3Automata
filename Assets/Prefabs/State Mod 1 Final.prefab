@@ -227,7 +227,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2466938695523640720, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
       propertyPath: m_Name
-      value: State Final
+      value: State Mod 1 Final
       objectReference: {fileID: 0}
     - target: {fileID: 2848184306437778028, guid: b33ed86be67f23743b98057dabe63d14, type: 3}
       propertyPath: m_LocalRotation.w
