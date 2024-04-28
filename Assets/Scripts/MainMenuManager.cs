@@ -20,18 +20,16 @@ public class MainMenuManager : MonoBehaviour
     public float cameraTime = 1f;
     public float levelScale = 1.15f;
     public float levelTime = 0.2f;
-    //public Transform uiMaxSymbols;
-    //public float uiMaxSymbolsScale = 1.15f;
-    //public float uiMaxSymbolsTime = 0.2f;
     public Transform uiMod2String;
     public float uiMod2StringScale = 1.15f;
     public float uiMod2StringTime = 0.2f;
 
     // Grid con los niveles.
     public Transform uiLevels;
+    public LoadScenes loadScenes;
     // Esta en la pantalla principal
     private bool isMainScreen = true;
-
+    private string levelName;
 
     void Start()
     {
@@ -87,43 +85,7 @@ public class MainMenuManager : MonoBehaviour
     /// Regresa la posion donde deberia estar el titulo en X.
     /// </summary>
     private float getTitlePositionX() => isMainScreen ? 1.32f : -1f;
-
-    ///// <summary>
-    ///// Muestra el panel para seleccionar el numero de maximo de simbolos.
-    ///// </summary>
-    ///// <param name="numBtnClick">Nivel que el usuario dio click</param>
-    //public void OnActiveUIMaxSymbols(int numBtnClick)
-    //{
-
-    //    uiMaxSymbols.gameObject.SetActive(true);
-    //    uiMaxSymbols.DOScale(0f, 0f);
-    //    uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
-    //            .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime));
-    //    //uiMaxSymbols.DOScale(0f, 0.01f)
-    //    //    .OnComplete(() => uiMaxSymbols.DOScale(uiMaxSymbolsScale, uiMaxSymbolsTime)
-    //    //        .OnComplete(() => uiMaxSymbols.DOScale(1f, uiMaxSymbolsTime))
-    //    //    );
-    //    // Se ocultan los otros niveles.
-    //    Transform grid = uiLevels.GetChild(0);
-    //    grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperCenter;
-    //    for (int i = 0; i < grid.childCount; i++)
-    //        grid.GetChild(i).gameObject.SetActive(numBtnClick == i);
-    //}
-
-    ///// <summary>
-    ///// Se oculta el panel para seleccionar el numero de maximo de simbolos.
-    ///// </summary>
-    //public void OnDeactivateUIMaxSymbols()
-    //{
-    //    uiMaxSymbols.DOScale(0f, uiMaxSymbolsTime)
-    //        .OnComplete(() => uiMaxSymbols.gameObject.SetActive(false));
-    //    // Se ponen de nuevo los niveles.
-    //    Transform grid = uiLevels.GetChild(0);
-    //    grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperRight;
-    //    for (int i = 0; i < grid.childCount; i++)
-    //        grid.GetChild(i).gameObject.SetActive(true);
-    //}
-
+        
     /// <summary>
     /// Muestra el panel para seleccionar la cadena para Modo 2 de juego.
     /// </summary>
@@ -138,7 +100,9 @@ public class MainMenuManager : MonoBehaviour
         Transform grid = uiLevels.GetChild(0);
         grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperCenter;
         for (int i = 0; i < grid.childCount; i++)
-            grid.GetChild(i).gameObject.SetActive(numBtnClick == i);
+            grid.GetChild(i).gameObject.SetActive(false);
+        grid.GetChild(numBtnClick).gameObject.SetActive(true);
+        levelName = grid.GetChild(numBtnClick).name;
     }
 
     /// <summary>
@@ -153,5 +117,14 @@ public class MainMenuManager : MonoBehaviour
         grid.GetComponent<GridLayoutGroup>().childAlignment = TextAnchor.UpperRight;
         for (int i = 0; i < grid.childCount; i++)
             grid.GetChild(i).gameObject.SetActive(true);
+    }
+
+    public void StartMod2(string word)
+    {
+        Constants.instance.GAME_MOD2_STRING = word;
+        if (levelName.Equals(Constants.instance.NAME_SCENE_MOD2_STATES2))
+            loadScenes.LoadMod2State2();
+        else if (levelName.Equals(Constants.instance.NAME_SCENE_MOD2_STATES2_2))
+            loadScenes.LoadMod2State2_2();
     }
 }

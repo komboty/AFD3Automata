@@ -7,7 +7,6 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 /// <summary>
 /// Script que maneja las transiciones de un estado.

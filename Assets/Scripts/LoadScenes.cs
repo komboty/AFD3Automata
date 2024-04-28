@@ -43,10 +43,17 @@ public class LoadScenes : MonoBehaviour
     //    LoadMod1State3();
     //}
 
-    // Inicia la escena con el Modo 2 con 2 Estados.
-    public void StartMod2State2(string word)
-    {
-        Constants.instance.GAME_MOD2_STRING = word;
-        LoadMod2State2();
-    }
+    //// Inicia la escena con el Modo 2 con 2 Estados.
+    //public void StartMod2State2(string word)
+    //{
+    //    Constants.instance.GAME_MOD2_STRING = word;
+    //    LoadMod2State2();
+    //}
+
+    //// Inicia la escena con el Modo 2 con 2 Estados version 2.
+    //public void StartMod2State2_2(string word)
+    //{
+    //    Constants.instance.GAME_MOD2_STRING = word;
+    //    LoadMod2State2_2();
+    //}
 }

@@ -23,9 +23,7 @@ public class TransitionsManager : MonoBehaviour
     // Animacion de destruccion de un simbolo.
     public GameObject destructAnim;
     public float destructAnimTime = 3.2f;
-    //// Animacion de ganador.
-    //public GameObject winnerAnim;
-    //public float winnerAnimTime = 3.2f;
+    public float uiSymbolAnimTime = 0.2f;
     // Es estado incial?.
     public bool isStateInitial = false;
     private bool auxStateInitial = true;
@@ -143,9 +141,21 @@ public class TransitionsManager : MonoBehaviour
         // Se cambia el color del simbolo.
         Transform cardSymbol = uiString.GetChild(uiString.childCount - (symbols.childCount - 1));
         cardSymbol.GetComponent<Image>().color = uiSymbolColorDelete;
+        //uiString.DOShakeScale(uiSymbolAnimTime);
+        uiString.DOPunchScale(new Vector3(0.3f, 0.3f, 0f), uiSymbolAnimTime, 0);
+        //StartCoroutine(nameof(delayCamera));
+
         // Se ponen particulas.
         GameObject anim = Instantiate(prefabAnimation);
         anim.transform.position = position;
         Destroy(anim, destructionTime);
     }
+
+    //public IEnumerator delayCamera()
+    //{
+    //    Transform follow = CameraController.instance.followTransform;
+    //    CameraController.instance.followTransform = null;
+    //    yield return new WaitForSeconds(camDestructAnimTime);
+    //    CameraController.instance.followTransform = follow;
+    //}
 }
