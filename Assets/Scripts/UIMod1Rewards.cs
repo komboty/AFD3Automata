@@ -13,7 +13,7 @@ public class UIMod1Rewards : MonoBehaviour
 {
     public Transform uiRewards;
     public float uiRewardsTime = 0.2f;
-    public float uiRewardsInitTime = 1f;
+    public float uiRewardsInitTime = 2f;
 
     public TextMeshProUGUI TextScroll;
     public TextMeshProUGUI TextScore;
@@ -24,7 +24,10 @@ public class UIMod1Rewards : MonoBehaviour
     private void Start()
     {
         InitRewards();
-        StartCoroutine(nameof(InitAnimation));
+        // Si se quiere mostrar el puntaje al iniciar el nivel.
+        if (Constants.instance.GAME_SHOW_SCORE_INIT)
+            StartCoroutine(nameof(InitAnimation));
+        Constants.instance.GAME_SHOW_SCORE_INIT = true;
     }
 
     /// <summary>

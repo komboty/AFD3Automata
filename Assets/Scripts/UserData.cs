@@ -16,7 +16,7 @@ public class UserData : MonoBehaviour
         {"Mod1States3", new List<string>()}
     };
 
-    
+
     // La primer llave contiene el nombre del nivel, la segunda llave contiene una cadena
     // y el valor las transiciones que hizo el usaurio.
     public Dictionary<string, Dictionary<string, List<string>>> Mod2Solutions = new()
@@ -26,7 +26,7 @@ public class UserData : MonoBehaviour
                 {"A", new List<string>()},{"B", new List<string>()},
                 {"AA", new List<string>()},{"BB", new List<string>()},{"AB", new List<string>()},{"BA", new List<string>()},
                 {"AAA", new List<string>()},{"BBB", new List<string>()},{"AAB", new List<string>()},{"ABB", new List<string>()},{"BBA", new List<string>()},{"BAA", new List<string>()},{"BAB", new List<string>()},{"ABA", new List<string>()},
-            }            
+            }
         },
         {"Mod2States2_2", new Dictionary<string, List<string>>()
             {
@@ -38,7 +38,7 @@ public class UserData : MonoBehaviour
     };
 
     // Auxiliar para almacenar la solucion del modo 2 de juego.
-    public Dictionary<string, string> SOLUTION_MOD2;    
+    public Dictionary<string, string> SOLUTION_MOD2;
 
     /// <summary>
     /// Singleton
@@ -110,8 +110,22 @@ public class UserData : MonoBehaviour
     /// <param name="levelName">Nombre del nivel</param>
     /// <param name="word">Cadena del nivel</param>
     /// <returns>Puntaje total</returns>
-    public int GetMod2Score(string levelName, string word) => Constants.instance.GAME_MOD2_SCORE_MULTIPLER * 
+    public int GetMod2Score(string levelName, string word) => Constants.instance.GAME_MOD2_SCORE_MULTIPLER *
         word.Length * Mod2Solutions[levelName][word].Count();
+
+    /// <summary>
+    /// Regresa el puntaje total de un nivel. (Modo 2 de juego)
+    /// </summary>
+    /// <param name="levelName">Nombre del nivel</param>
+    /// <returns>Puntaje total</returns>
+    public int GetMod2Score(string levelName)
+    {
+        int scoreTota = 0;
+        foreach (KeyValuePair<string, List<string>> scores in Mod2Solutions[levelName])
+            scoreTota += GetMod2Score(levelName, scores.Key);
+        return scoreTota;
+    }
+
 
     /// <summary>
     /// Regresa todas las soluciones hechas por el usuario de un nivel. (Modo 2 de juego)

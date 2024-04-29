@@ -179,9 +179,12 @@ public class PathsManagerFix : MonoBehaviour
         //        Destroy(path.gameObject);
         //}
         Transform spline = pathSelected.transform.GetChild(0);
+        SplineInstantiate[] splinesInstantiate = spline.GetComponents<SplineInstantiate>();
+        splinesInstantiate[1].InstantiateMethod = SplineInstantiate.Method.SpacingDistance;
+        splinesInstantiate[2].InstantiateMethod = SplineInstantiate.Method.SpacingDistance;
         spline.GetComponent<SplineContainer>().Spline.Clear();
-        AddKnotTo(spline, new Vector3(0f, 0.02f, 0f), true);
-        AddKnotTo(spline, new Vector3(0f, 0.02f, 0.01f), true);
+        AddKnotTo(spline, new Vector3(0f, 0.05f, 0f), true);
+        AddKnotTo(spline, new Vector3(0f, 0.05f, 0.01f), true);
     }
 
     /// <summary>
@@ -225,7 +228,14 @@ public class PathsManagerFix : MonoBehaviour
     /// <param name="position">Punto a agregar</param>
     public void AddKnotTo(Transform spline, Vector3 position, bool withPositionY = false)
     {
-        float positionY = withPositionY ? position.y : 0f;
+        float positionY;
+        if (withPositionY)
+            positionY = position.y;
+        else if (pathSelected != null && pathSelected.name.Equals(Constants.instance.SYMBOL_A_NAME))
+            positionY = 0.1f;
+        else 
+            positionY = 0.15f;
+
         float3 knotPostion = new float3(position.x, positionY, position.z);
         BezierKnot knot = new BezierKnot(knotPostion);
         SplineContainer splineContainer = spline.GetComponent<SplineContainer>();

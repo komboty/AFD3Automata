@@ -75,9 +75,13 @@ public class TransitionsManager : MonoBehaviour
                 }                        
                 // Si no es estado final, se muestra mensaje de perdedor.
                 else
+                {
+                    Constants.instance.GAME_SHOW_SCORE_INIT = false;
                     uIMessagesManager.ShowLoser();
+                }
+                    
 
-                // Se finaliza.
+                // Se finaliza.                
                 return;
 
             }

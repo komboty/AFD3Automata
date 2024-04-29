@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -27,6 +28,9 @@ public class MainMenuManager : MonoBehaviour
     // Grid con los niveles.
     public Transform uiLevels;
     public LoadScenes loadScenes;
+    public List<TextMeshProUGUI> mod1Scores;
+    public List<TextMeshProUGUI> mod2Scores;
+
     // Esta en la pantalla principal
     private bool isMainScreen = true;
     private string levelName;
@@ -38,6 +42,11 @@ public class MainMenuManager : MonoBehaviour
             .SetLoops(-1);
         // Animacion del titulo.
         StartCoroutine(nameof(AnimationTitle));
+        // Se ponen los puntajes totales
+        foreach (TextMeshProUGUI score in mod1Scores)
+            score.text = UserData.instance.GetMod1Score(score.transform.parent.parent.name).ToString();
+        foreach (TextMeshProUGUI score in mod2Scores)
+            score.text = UserData.instance.GetMod2Score(score.transform.parent.parent.name).ToString();
     }
 
     /// <summary>

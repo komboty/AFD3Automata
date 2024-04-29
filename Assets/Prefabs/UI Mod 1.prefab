@@ -4345,7 +4345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiRewards: {fileID: 7482845713554703547}
   uiRewardsTime: 0.2
-  uiRewardsInitTime: 1
+  uiRewardsInitTime: 2
   TextScroll: {fileID: 2505052395654144054}
   TextScore: {fileID: 1312006783562861864}
   TextCount: {fileID: 5915775452228588322}

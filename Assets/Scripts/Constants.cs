@@ -48,6 +48,7 @@ public class Constants : MonoBehaviour
     public int GAME_MAX_SYMBOLS = 6;
     public string GAME_MOD2_STRING = "";
     public int GAME_MOD2_SCORE_MULTIPLER = 10;
+    public bool GAME_SHOW_SCORE_INIT = true;    
 
     /// <summary>
     /// Singleton
