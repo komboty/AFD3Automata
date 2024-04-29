@@ -77,29 +77,29 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BumpScale: 1
-    - _Centre_Gaps_Amount: 2
-    - _Centre_Noise_Amount: 150
-    - _Centre_Normal_Height: 2
-    - _Centre_Roughness: 0.5
+    - _Centre_Gaps_Amount: 0
+    - _Centre_Noise_Amount: 0
+    - _Centre_Normal_Height: 0
+    - _Centre_Roughness: 0
     - _Centre_Width: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Edge_Gap: 0.1
-    - _Edge_Noise_Amount: 75
-    - _Edge_Normal_Height: 10
-    - _Edge_Roughness: 0.5
+    - _Edge_Noise_Amount: 0
+    - _Edge_Normal_Height: 0
+    - _Edge_Roughness: 0
     - _Edge_Width: 0.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _Normal_Strength: 0.01
+    - _Normal_Strength: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Road_Noise_Amount: 70
-    - _Road_Normal_Height: 2
+    - _Road_Noise_Amount: 0
+    - _Road_Normal_Height: 0
     - _Road_Roughness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
