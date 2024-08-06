@@ -1,5 +1,4 @@
 # AFD3Automata
-
 Videojuego educativo para aprender autómatas finitos deterministas.
 Jugable en linea: [itch.io](https://komparker.itch.io/afd-automata)
 
